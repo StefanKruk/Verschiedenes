@@ -1,0 +1,212 @@
+% **************************** HYPERREF SETUP *******************************
+\definecolor{linkcolor}{rgb}{1,0.5,0}
+\hypersetup
+{
+bookmarks=true,                        % Lesezeichen im PDF erzeugen
+bookmarksopen=true,                    % Lesezeichen im PDF sofort anzeigen
+backref=true,                          % Rückverweise im Literaturverzeichnis
+colorlinks=true,                       % Farbige Verweise
+%hidelinks = true,                      % Verweise verbergen (entfernt Farbe und Rahmen)
+pdfstartview={FitH},                   % Ansicht des PDFs beim öffnen
+pdftitle={\titel},                     % Title des PDFs
+pdfauthor={\author , \supervisor},     % Autor des PDFs
+pdfsubject={\subject},                 % Thema des PDFs
+%pdfcreator={Creator},                 % Erzeuger des Dokuments (Anwendungsprogramm)
+%pdfproducer={Producer},               % Ersteller des PDFs (Programm/Bibliothek/Skript)
+pdfkeywords={\keywords},               % Stichwörter zum PDF
+linkcolor=linkcolor,                   % Farbe von Querverweisen
+citecolor=linkcolor,                       % Farbe von Zitaten
+filecolor=magenta,                     % Farbe von Verweisen auf Dateien
+urlcolor=cyan                          % Farbe von URLs
+}
+% Weitere Optionen: http://www.tug.org/applications/hyperref/manual.html
+
+% Für Zeichnungen
+\usetikzlibrary{% 
+    arrows,% 
+    calc,% 
+    fit,% 
+    patterns,% 
+    plotmarks,% 
+    shapes.geometric,% 
+    shapes.misc,% 
+    shapes.symbols,% 
+    shapes.arrows,% 
+    shapes.callouts,% 
+    shapes.multipart,% 
+    shapes.gates.logic.US,% 
+    shapes.gates.logic.IEC,% 
+    er,% 
+    automata,% 
+    backgrounds,% 
+    chains,% 
+    topaths,% 
+    trees,% 
+    petri,% 
+    mindmap,% 
+    matrix,% 
+    calendar,% 
+    folding,% 
+    fadings,% 
+    through,% 
+    positioning,% 
+    scopes,% 
+    decorations.fractals,% 
+    decorations.shapes,% 
+    decorations.text,% 
+    decorations.pathmorphing,% 
+    decorations.pathreplacing,% 
+    decorations.footprints,% 
+    decorations.markings,% 
+    shadows
+} 
+
+% **************************** LISTINGS SETUP *******************************
+\definecolor{keywords}{rgb}{0.5 0 0.3}
+\definecolor{comments}{rgb}{0.25,0.5,0.37}
+\definecolor{lila}{RGB}{112, 6, 147}
+\definecolor{kommentgreen}{RGB}{5,132,71}
+\definecolor{grey}{RGB}{242,242,242}  
+\definecolor{darkgreen}{named}{green}
+\definecolor{darkblue}{named}{blue}
+\definecolor{lightblue}{RGB} {63,95,191}
+\definecolor{darkred}{named}{red}
+\definecolor{grau}{named}{gray}
+\definecolor{fh_orange}{rgb}{0.953,0.201,0}
+\definecolor{fh_grau}{rgb}{0.76,0.75,0.76}
+
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+}
+\lstset{ %
+    backgroundcolor=\color{grey},   % Hintergrundfarbe
+    basicstyle=\linespread{0.94}\footnotesize\ttfamily, % Schrifteinstellungen für Quellcode
+    breakatwhitespace=false,         % Automatische Zeilenumbrüche nur bei Leer- oder Tabulatorzeichen (Leerraum/whitespaces)
+    breaklines=true,                 % Automatische Zeilenumbrüche
+    captionpos=b,                    % Beschriftung unten
+    commentstyle=\color{comments},   % Schrifteinstellungen für Kommentare
+    columns=felxible,                 % Ist notwendig, damit man Quellcode aus den Listings kopieren kann
+    %  deletekeywords={...},            % Bestimmte Schlüsselwörter entfernen
+    escapeinside={\%*}{*)},          % Defintion von Escape-Sequenzen
+    extendedchars=false,                   % Nicht ASCII-Zeichen erlauben
+    frame=single,                    % Rahmen um den Quellcode
+    keepspaces=true,                 % Einrückungen im Quellcode behalten
+    keywordstyle=\bfseries\color{keywords},% Schrifteinstellungen für Schlüsselwörter
+    language=java,                   % Programmiersprache des Quellcodes
+    %  morekeywords={*,...},            % Zusätzliche Schlüsselwörter
+    numbers=left,                    % Zeilennummerierung
+    numbersep=5pt,                   % Abstand zwischen Zeilennummerierung und Quellcode
+    numberstyle=\color{black}, % Schrifteinstellungen für Zeilennummern
+    rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+    showspaces=false,                % Leerraum-Zeichen anzeigen
+    showstringspaces=false,          % Leerzeichen in Zeichenketten anzeigen
+    showtabs=false,                  % Tabulatorzeichen in Zeichenketten anzeigen
+    stepnumber=1,                    % Schrittweite bei Zeilennummern
+    stringstyle=\color{blue},        % Schrifteinstellungen für Zeichenketten
+    tabsize=4,                       % Tabulatorbreite (Anzahl Leerzeichen)
+    numberbychapter=false            % Nummeriere Quellcode fortlaufend je Kapitel
+}
+
+\lstdefinestyle{java}
+{
+    language=Java,
+    keywordstyle=\bfseries\color{lila},  	% underlined bold black keywords 
+    identifierstyle=\bfseries\color{blue}, 
+    commentstyle=\bfseries\color{kommentgreen}, % white comments 
+    stringstyle=\bfseries\color{black},
+}
+
+\lstdefinestyle{xml}
+{
+    language=xml,
+    basicstyle=\fontsize{9pt}{9pt}\selectfont\color{kommentgreen},
+    keywordstyle=\color{lila},  	% underlined bold black keywords 
+    %Hier können bei Bedarf noch weitere Keywords eingetragen werden
+    keywords={name, value, version, encoding, id, type, xmlns:xsi, ref, namespace},
+    identifierstyle=\color{black},  
+    stringstyle=\color{blue},  
+    commentstyle=\color{lightblue},
+    morecomment=[s]{<!--}{-->},
+    rulecolor=\color{black}
+}
+\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
+\renewcommand{\lstlistingname}{Quellcode}
+
+\AtBeginDocument{\numberwithin{lstlisting}{section}} % Nummeriere Quellcode fortlaufend je Abschnitt
+
+% ************************** HEADER/FOOTER SETUP ****************************
+\setlength{\headheight}{15pt}
+
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+
+\fancyhf{}
+\fancyhead[LE]{\thepage \ \ \ \ {\tiny \author, \today}}
+\fancyhead[RO]{{\tiny \author, \today} \ \ \ \ \thepage}
+\fancyhead[LO,RE]{\textit{\nouppercase{\leftmark}} }
+\renewcommand{\headrulewidth}{0pt}
+
+% **************************** GRAPHICX SETUP *********************************
+\DeclareGraphicsExtensions{.pdf,.png,.jpg} % bekannte Graphik-Dateiformate (müssen nicht mehr im Dateinamen angegeben werden, also statt "beispiel.png" nur noch "beispiel")
+\graphicspath{{./figure/}}   % path to graphics folder, usage {PATH},{ANOTHERPATH}...
+
+% ************************** BIBLIOGRAPHY SETUP ********************************
+\bibliographystyle{dinat}    % Literaturverzeichnis nach DIN
+\AtBeginDocument{\nocite{*}} % Diese Zeile vor der Abgabe der Arbeit entfernen!
+
+% ****************************** MATH SETUP ************************************
+\everymath{\displaystyle}    % Erzwinge \displaystyle für Mathematischen-Modus
+
+
+% ************************* THEOREMS AND PROOF *********************************
+\newtheoremstyle{thesis}     % Name des neuen Theorem-Stils
+{3pt}                        % Abstand oberhalb des Theorems
+{3pt}                        % Abstand unterhalb des Theorems
+{\itshape}                   % Schrifteinstellungen innerhalb des Theorems
+{}                           % Einrückung der Theorem-Überschrift
+{\bfseries}                  % Schrifteinstellungen für die Überschrift des Theorems
+{}                           % Satzzeichen zwischen Überschrift und Theorem-Rumpf
+{\newline}                   % Abstand hinter der Überschrift
+{}                           % Spezifikation der Überschrift
+  
+\theoremstyle{thesis}        % Verwende neuen Theorem-Stil
+
+\newtheorem{theorem}{Satz}[section] % neue Theorem-Umgebung: theorem (Satz)
+\providecommand*{\theoremautorefname}{Satz} % autoref-Name für theorem
+
+\newtheorem{definition}{Definition}[section] % neue Theorem-Umgebung: definition (Definition)
+\providecommand*{\definitionautorefname}{Definition} % autoref-Name für definition
+
+\renewcommand{\qedsymbol}{$\blacksquare$} % Schwarzes Quardrat als Symbol für: q. e. d.
+\renewenvironment{proof}[1][\proofname]{{\bfseries #1:}~}{\qed} % "Beweise:" in Fettdruck
+
+% *************************** PSEUDOCODE SETUP ********************************
+\floatstyle{boxed}                        % Rahmen für pseudocode-Umgebung
+\newfloat{pseudocode}{htbp}{lop}[section] % Definieren pseudocode-Umgebung
+\floatname{pseudocode}{Pseudocode}        % Beschrifte pseudocode-Umgebung mit "Pseudocode"
+
+\newcommand{\listofpseudocodename}{Pseudocodeverzeichnis}
+\newcommand{\listofpseudocode}{\listof{pseudocode}{\listofpseudocodename}}
+\providecommand*{\pseudocodeautorefname}{Pseudocode}
+
+% ******************************* PAGE SETUP **********************************
+\textheight23cm
+\textwidth14cm
+\voffset0cm
+\topskip0cm
+\topmargin-1.2cm
+\headheight1.0cm
+\headsep1.5cm
+\oddsidemargin1.0cm
+\evensidemargin1.0cm
+\renewcommand{\baselinestretch}{1.4} 
+\widowpenalty=300
+\clubpenalty=300
