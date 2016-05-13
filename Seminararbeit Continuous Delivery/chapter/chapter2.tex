@@ -82,15 +82,14 @@ Im Nachfolgenden sind für jeden, der in Abschnitt \ref{subsec:picoc} \nameref{s
 					\item Docker
 					\item Jenkins
 					\item Deployment
+                    \item pipeline
 				\end{itemize}
 			} \\ 
 	\hline
 	Comparison &  \multicolumn{2}{p{10cm}|}{
 		\begin{itemize}
 			\itemsep-15pt
-			\item SSH
-			\item FTP
-			\item Deployment
+			\item Manuel (Deployment)
 		\end{itemize}
 	} \\  
 	\hline
@@ -100,39 +99,32 @@ Im Nachfolgenden sind für jeden, der in Abschnitt \ref{subsec:picoc} \nameref{s
 			\item Kosten
 			\item Tests
 			\item Zeit
-			\item Stabilität
-			\item Fehler
 		\end{itemize}}  &  \multicolumn{1}{p{5cm}|}{
 		\begin{itemize}
 			\itemsep-15pt
 			\item costs
 			\item tests
 			\item time / duration
-			\item steadliness
-			\item error
 		\end{itemize}} \\
 	\hline
 	Context & \multicolumn{1}{p{5cm}|}{
 		\begin{itemize}
 			\itemsep-15pt
-			\item Qualitätssicherung
 			\item Technik
 			\item Prinzipien
 			\item Praxis
-			\item Beobachtung
 			\item Anwendung
 		\end{itemize}}  &  \multicolumn{1}{p{5cm}|}{
 		\begin{itemize}
 			\itemsep-15pt
-			\item quality assurance
 			\item techniques
 			\item principles
 			\item practice
-			\item observation
-			\item application, usage
+			\item usage
 		\end{itemize}} \\
 	\hline
 \end{tabular} 
+\noindent
 Der Begriff Deployment is sowohl in Intervention und Comparison, da dieser ein zentraler Begriff in beiden Mengen ist und unterschiedlich verwendet werden kann.
 
 \subsection{Zusätzliche Anmerkungen zur Recherche}
@@ -156,16 +148,16 @@ Die Suchstrategie basiert auf der eigenen bereits gesammelten Erfahrung und vorh
 \label{subsec:suchstring}
 In Abschnitt \ref{subsec:suchbegriffe} \nameref{subsec:suchbegriffe} wurden Suchbegriffe festgelegt, auf denen die Literaturrecherche basiert. Diese werden zu nächst mit einem "'ODER" bzw. "'OR"` verknüpft. Im Zweiten Schritt werden die Suchbegriffe mit einem "'UND`" bzw. "AND"` verknüpft.
 \\\\
-Da bestimmte Begriffe mit verschiedenen Kontexte in Verbindung gebracht werden können. Wird zunächst ein Suchstring aufgebaut, der als Erstes Element ("'Continuous Delivery"` OR "'Deployment"`) besitzt und mit dem "'AND"` Operator mit allen weiteren Elementen verbunden wird. Daraus ergibt sich folgender Suchstring:
+Da bestimmte Begriffe mit verschiedenen Kontexte in Verbindung gebracht werden können. Wird zunächst ein Suchstring aufgebaut, der als Erstes Element ("'Continuous Delivery"` OR "'Deployment"`) besitzt. Nachfolgend werden nun die einzelnen Suchstrings aufgelistet, die verwendet wurden, um die systematische Literaturrecherche durchzuführen. Da Suchmaschinen einen komplexen Algorithmus aufweisen, wird ebenfalls davon ausgegangen, dass auch eine aneinander reihen von den in \ref{subsec:suchstring}\ \nameref{subsec:suchstring}\ Ausdrücken (immer mit dem Führenden "'Continuous Delivery"` Oder "'Deployment`") zum gewünschten Ergebnis führt. Dies beruht auf den Eigenschaften moderner Suchalgorithmen.
+Nach einer ersten suche, hat sich ergeben, dass einige Begriffe irreführend für die Suchmaschinen sind, wodurch Materialien gefunden wurde, welche absolut nichts mit dem Thema zu tun haben. Daher sind nur die folgenden Suchanfragen von Bedeutung.
 
 \begin{description}
-	\item[\suchstring{Komplex} =] ("'Continuous Delivery"` OR "'Deployment"`) \\AND\\ ("'SSH"` OR "'FTP"` OR "'Deployment"`) \\AND\\ ("'Kosten"` OR "'costs"` OR "'Tests"` OR "'Zeit"` OR "'time"` OR "'duration"` OR "'Stabilität"` OR "'steadliness"` OR "'Fehler"` OR "'error"`) \\AND\\ ("'Qualitätssicherung"` OR "'quality assurance"` OR "'Technik"` OR "'techniques"` OR "'Prinzipien"` OR "'principles"` OR "'Praxis"` OR "'practice"` OR "'Beobachtung"` OR "'observation"` OR "'Anwendung"` OR "'application"` OR "'usage")
+	\item[\suchstring{Komplex} =] \suchstringPrefix \\AND\\ ("'SSH"` OR "'FTP"` OR "'Deployment"` OR"'Kosten"` OR "'costs"` OR "'Tests"` OR "'Zeit"` OR "'time"` OR "'duration"` OR "'Fehler"` OR "'error"` OR "'Qualitätssicherung"` OR "'quality assurance"` OR "'Technik"` OR "'techniques"` OR "'Prinzipien"` OR "'principles"` OR "'Praxis"` OR "'practice"` OR "'Anwendung"` OR "'usage")
+    
+    \item[\suchstring{deployment} =] \suchstringPrefix \\AND\\ ("'Deployment"`)
+    
+    \item[\suchstring{pipeline} =] \suchstringPrefix \\AND\\ ("'Pipeline"`)
 \end{description}
-Nach \cite[vgl. S. 26]{Kitchenham2007} können auch ein einfacher Suchstring effektiv sein. Daher wurde ein zweiter Suchstring aufgebaut, der nicht die Komplexität des oben dargestellten aufweist.
-\begin{description}
-	\item[\suchstring{Einfach} =] ("'Continuous Delivery"` OR "'Deployment"`) \\AND\\ ("'Deployment"` OR "'Tests"` OR "'Qualitätssicherung"` OR "'quality assurance"`)
-\end{description}
-Da Suchmaschinen einen komplexen Algorithmus aufweisen, wird ebenfalls davon ausgegangen, dass auch eine aneinander reihen von Ausdrücken (immer mit dem Führenden "'Continuous Delivery"` Oder "'Deployment`") zum gewünschten Ergebnis führt. Dies beruht auf den Eigenschaften moderner Suchalgorithmen.
 
 \subsection{Quellen}
 \label{subsec:quellen}
@@ -185,12 +177,56 @@ In \cite{Kitchenham2007} wurden einige elektronische Standartquellen der Informa
 	\hline
 	Inspec (www.iee.org/Publish/INSPEC/) & \redX & Registrierung erforderlich \\ 
 	\hline
-	Google scholar (scholar.google.com) & \greenchecked & Großes Angebot, meist als PDF frei zugänglich \\ 
+	Google scholar (scholar.google.com) & \greenchecked & Großes Angebot, \underline{meist} als PDF frei zugänglich \\ 
 	\hline
-	ScienceDirect (www.sciencedirect.com) & \greenchecked & Frei zugänglich, Filter möglichkeiten \\
+	ScienceDirect (www.sciencedirect.com) & \redX & PDFs sind nur teilweise frei zugänglich. \\
 	\hline
 \end{tabular} 
 
 \section{Ergebnisse der Recherche}
 \label{sec:ergebnisseDerRecherche}
+In der Nachfolgenden Tabelle sind, nach Suchmaschine geordnet, die Ergebnisse der systematischen Literaturrecherche. Es wird der Suchstring, die Anzahl der gefundenen Ergebnisse, die Anzahl er betrachteten Ergebnisse, die Anzahl der relevanten Ergebnisse, die Anzahl der gewählten Ergebnisse und das Datum an dem die Suche durchgeführt worden ist.
+\\
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+    \rowcolor{listinggray}\multicolumn{6}{|l|}{\textbf{Citeseer library}}  \\ 
+\hline
+    \rowcolor{listinggray}Suchstring & gesamt & betrachtet & relevant & gewählt & Datum \\
+    \hline 
+    \suchstring{komplex} & 350.724 & 0 & 0 & 0 & 13.05.2016 \\
+    \hline
+    \suchstring{deployment} & 207.039 & 0 & 0 & 0 & 13.05.2016 \\
+    \hline
+    \suchstring{pipeline} & 120.126 & 0 & 0 & 0 & 13.05.2016 \\
+    \hline
+\end{tabular}  
+\\[20px] \noindent
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+     \rowcolor{listinggray}\multicolumn{6}{|l|}{\textbf{IEEExplore}}  \\ 
+\hline
+    \rowcolor{listinggray}Suchstring & gesamt & betrachtet & relevant & gewählt & Datum \\
+    \hline 
+    \suchstring{komplex} & 0 & 0 & 0 & 0 & 13.05.2016 \\
+    \hline
+    \suchstring{deployment} & 60 & 10 & 10 & 4 & 13.05.2016 \\
+    \hline
+    \suchstring{pipeline} & 22 & 3 & 3 & 2 & 13.05.2016 \\
+    \hline
+\end{tabular}
+\\[20px] \noindent     
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+    \rowcolor{listinggray}\multicolumn{6}{|l|}{\textbf{Google scholar}}  \\
+\hline
+    \rowcolor{listinggray}Suchstring & gesamt & betrachtet & relevant & gewählt & Datum \\
+    \hline 
+    \suchstring{komplex} & 1.580 & 1 & 0 & 0 & 13.05.2016 \\
+    \hline
+    \suchstring{deployment} & 224.00 & 2 & 1 & 1 & 13.05.2016 \\
+    \hline
+    \suchstring{pipeline} & 80.800 & 2 & 1 & 1 & 13.05.2016 \\
+    \hline
+\end{tabular}
 
+Der Unterschied zwischen der Anzahl der betrachteten Ergebnisse und der gewählten, kommt durch erneut gefundene, bzw. durch Materialien, welche nicht ansatzweise mit dem Thema zu tun haben zu Stande.
