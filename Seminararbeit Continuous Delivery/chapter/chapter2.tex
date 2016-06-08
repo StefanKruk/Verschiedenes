@@ -13,49 +13,40 @@ Anschließend wird der Zugrundlegende Ansatz (P.I.C.O.C.) genauer erläutert und
 \label{subsec:inhaltlicheAuswahlkriterien}
 Folgende Inhaltliche Auswahlkriterien wurden für die Recherche festgelegt:
 \begin{list}{label}{spacing}
-	\item[a)] Dokument ist über oder hat direkten Bezug zu Continuous Delivery
-	\item[b)] Dokument beschreibt die Einsatzmöglichkeiten von Continuous Delivery
-	\item[c)] Dokument beschreibt wichtige Technologien für den Einsatz von Continuous Delivery
+	\item[\textbf{P1}] Dokument ist über oder hat direkten Bezug zu Continuous Delivery
+	\item[\textbf{P2}] Dokument beschreibt die Einsatzmöglichkeiten von Continuous Delivery
+	\item[\textbf{P3}] Dokument beschreibt wichtige Technologien für den Einsatz von Continuous Delivery
 \end{list}
 Mit Hilfe der Auswahlkriterien wird im \nameref{sec:rechercheprotokoll} die Relevanz der gefundenen Materialien begründet. Sie werden über die Buchstaben a) bis c) referenziert.
 \subsection{Inhaltliche Ausschlusskriterien}
 \label{subsec:inhaltlicheAusschlusskriterien}
 Folgende Inhaltliche Ausschlusskriterien wurden für die Recherche festgelegt.
 \begin{list}{label}{spacing}
-	\item[d)] Dokument ist zu allgemein und hat nur am Rande etwas mit dem Thema zu tun (Bsp.: Enthält den Begriff nur in Referenzen)
-	\item[e)] Inhalt ist zu speziell (Fokus liegt auf dem Einsatz bestimmter Technologien oder Frameworks)
-	\item[f)] Dokument beschreibt wie ein Werkzeug und/oder Framework aufgebaut ist und funktioniert.
-	\item[g)] Inhaltsangabe, Einleitung, Fazit oder Abstract sind nicht Aussagekräftig bzw. lassen keine Hinweise auf den Einsatz oder der Beschreibung von Continuous Delivery zu
-	\item[h)] Inhalt trägt nicht zur Beantwortung der Leitfragen bei.
-	\item[i)] Dokument ist nicht in Deutsch oder Englisch (Material kann aufgrund der Sprachbarriere nicht verwendet werden)
-	\item[j)] Dokumente ist älter als 5 Jahre
+	\item[\textbf{N1}] Dokument ist zu allgemein und hat nur am Rande etwas mit dem Thema zu tun (Bsp.: Enthält den Begriff nur in Referenzen)
+	\item[\textbf{N2}] Dokument beschreibt wie ein Werkzeug und/oder Framework aufgebaut ist und funktioniert.
+	\item[\textbf{N3}] Inhaltsangabe, Einleitung, Fazit oder Abstract sind nicht Aussagekräftig bzw. lassen keine Hinweise auf den Einsatz oder der Beschreibung von Continuous Delivery zu
+	\item[\textbf{N4}] Inhalt trägt nicht zur Beantwortung der Leitfragen bei. (Bsp.: Das Dokument ist ein Erfahrungsbericht, enthält jedoch keine konkreten Erläuterungen oder Verweise auf Dokumente, die den Prozess genauer beschreiben.)
+	\item[\textbf{N5}] Dokument ist nicht in Deutsch oder Englisch (Material kann aufgrund der Sprachbarriere nicht verwendet werden)
 \end{list}
 Mit Hilfe der Ausschlusskriterien wird im \nameref{sec:rechercheprotokoll} die Irrelevanz der gefundenen Materialien begründet. Sie werden über die Buchstaben d) bis j) referenziert.
 
 \subsection{P.I.C.O.C.}
 \label{subsec:picoc}
-Die Suchbegriffe werden mit Hilfe des PICOC-Ansatzes (siehe \cite{Kitchenham2007}) ermittelt. Der Begriff besteht dabei aus folgenden Aspekte:
-\begin{list}{}{spacing}
-	\item \textbf{P}opulation
-	\item \textbf{I}nterventation
-	\item \textbf{C}omparison
-	\item \textbf{O}utcomes
-	\item \textbf{C}ontext
-\end{list}
+Die Suchbegriffe werden mit Hilfe des PICOC-Ansatzes (siehe \cite{Kitchenham2007}) ermittelt.
 
 \subsubsection*{Population}
 \label{picoc:population}
 Die Population, zu Deutsch etwa "Bevölkerung", beschreibt eine Teilmenge von relevanten Personen, wie Tester, Manager, Novizen oder Experten. Aber auch Applikationsfelder wie IT-Systeme, Command und Control Systeme oder Industrielle Gruppen wie Telekommunikations- oder kleine IT-Unternehmen.
 \\\\
-Bezüglich der Population werden hier keine Einschränkungen gemacht, da Continuous Delivery für jede Teilmenge der gerade genannten Personen, Gebiete und Unternehmen von Bedeutung ist. Da das Thema jedoch stark mit dem Thema DevOp-Teams tangiert, wird hier zusätzlich zu diesem Thema Suchanfragen gestellt. Eine Einschränkung des Thema auf DevOps besteht jedoch nicht.
+Bezüglich der Population werden hier die sogenannten "Stackeholder" weggelassen. Da das Thema jedoch stark mit dem Thema DevOp-Teams tangiert, wird hier zusätzlich zu diesem Thema Suchanfragen gestellt. Eine Einschränkung des Thema auf DevOps besteht jedoch nicht.
 
 \subsubsection*{Intervention}
 \label{picoc:Interventation}
-Bei der Intervention handelt es sich um die eingesetzten Methoden, Werkzeugen, Technologien oder Prozeduren für ein bestimmtes Problem. Im Rahmen von Continuous Delivery bedeutet dies, die Werkzeuge die nötig sind um eine Continuous Delivery Pipeline aufbauen und durchführen zu können.
+Bei der Intervention handelt es sich um die eingesetzten Methoden, Werkzeugen, Technologien oder Prozeduren für ein bestimmtes Problem. Im Rahmen von Continuous Delivery bedeutet dies, die Werkzeuge die nötig sind um eine Continuous Delivery Pipeline aufbauen und durchführen zu können. Grundlegend sollen Werkzeuge erläutert werden, welche zur Verwaltung, Bauen, Testen und Ausliefern dienen.
 
 \subsubsection*{Comparison / Vergleich}
 \label{picoc:Comparison}
-Der Vergleich (Comparison) beschreibt die Werkzeuge einer Kontrollgruppe, welche mit denen aus der Intervention verglichen werden.
+Der Vergleich (Comparison) beschreibt die Werkzeuge einer Kontrollgruppe, welche mit denen aus der Intervention verglichen werden. Konkret werden die Gruppen aufgrund der TTM verglichen. Anzumerken sei, dass die Vergleichsgruppe ohne einen automatisierten Prozess Softwareprojekte durchführt.
 
 \subsubsection*{Outcomes / Auswirkung}
 \label{picoc:Outcomes}
@@ -63,7 +54,7 @@ Bei der Auswirkung soll mit Hilfe von Zahlen und Faktoren der Vergleich erläute
 
 \subsubsection*{Context / Kontext}
 \label{picoc:Context}
-Der Kontext ist hier die Software-Entwicklung in Bezug auf Aufwand und Kosten der Produktion. Bei Continuous Delivery spielt ebenfalls der Aufbau des Teams eine Rolle. Wie bei der \nameref{picoc:population} spielen hier DevOp-Teams eine zentrale Rolle.
+Der Kontext ist hier die Software-Entwicklung in Bezug auf Aufwand und Kosten der Produktion. Bei Continuous Delivery spielt ebenfalls der Aufbau des Teams eine Rolle. Wie bei der \nameref{picoc:population} spielen hier DevOp-Teams eine zentrale Rolle. Zusätzlich sei hier auf \nameref{picoc:Interventation} und die dortigen Werkzeuge verwiesen.
 
 \subsubsection{Suchbegriffe}
 \label{subsec:suchbegriffe}
@@ -139,10 +130,6 @@ Für diese Arbeit wurden zusätzlich folgenden Einschränkungen, für die Durchf
 
 \section{Quellen und Suchanfragen}
 \label{sec:QuellenUndSuchanfragen}
-
-\subsection{Suchstrategie}
-\label{subsec:suchstrategie}
-Die Suchstrategie basiert auf der eigenen bereits gesammelten Erfahrung und vorhandenen Materialien (siehe z.B. \cite{EWolff:CD}. Auf Basis dessen wurden unter anderem die in \ref{subsec:suchbegriffe} \nameref{subsec:suchbegriffe} genannten Suchbegriffe definiert. Zusätzlich wurden diese aus weiteren gefundenen Materialien aufgebaut.
 
 \subsection{Suchstring}
 \label{subsec:suchstring}
@@ -228,5 +215,5 @@ In der Nachfolgenden Tabelle sind, nach Suchmaschine geordnet, die Ergebnisse de
     \suchstring{pipeline} & 80.800 & 2 & 1 & 1 & 13.05.2016 \\
     \hline
 \end{tabular}
-
-Der Unterschied zwischen der Anzahl der betrachteten Ergebnisse und der gewählten, kommt durch erneut gefundene, bzw. durch Materialien, welche nicht ansatzweise mit dem Thema zu tun haben zu Stande.
+\noindent
+Leider ergaben die suchen, mit den oben angegebenen Suchstrings, keine eindeutigen Ergebnisse. Eine Konkrete suche nach einzelnen Begriffen führte zu einer noch größeren Breite an Informationen, welche auf Grund der in \ref{subsec:inhaltlicheAusschlusskriterien} \nameref{subsec:inhaltlicheAusschlusskriterien} erläuterten Kriterien ausgeschlossen wurden und daher nicht dokumentiert wurden.

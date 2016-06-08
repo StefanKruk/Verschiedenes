@@ -4,12 +4,26 @@
 \usepackage{ucs}                     % Erweiterte Unterstützung von UTF-8-Kodierung
 \usepackage[utf8x]{inputenc}         % Unterstützung von UTF-8 in Eingabe-Dateien
 \usepackage[T1]{fontenc}             % Zeichensatzkodierung von LaTeX (Cork-Kodierung)
+\usepackage{textcomp}				 % Text-Companion-Symbols (z. B. \texteuro)
+\usepackage{ae}						 % Schöne Schriften für PDF-Dateien
 \usepackage{helvet,courier,mathptmx} % Verwendete Schriftarten
 
 \usepackage{amsmath}                 % Mathematische Infrastruktur für LaTeX der AMS
 \usepackage{amsfonts}                % Mathematische Schriftarten
 \usepackage{amssymb}                 % Mathematische Symbole
 \usepackage{amsthm}                  % Erweiterung der Theorem-Umgebungen
+
+\usepackage[ngerman]{translator}
+%Paket laden
+\usepackage[
+%xindy,
+%nonumberlist, %keine Seitenzahlen anzeigen
+nopostdot,    %Den Punkt am Ende jeder Beschreibung deaktivieren
+acronym,      %ein Abkürzungsverzeichnis erstellen
+%toc
+]      %im Inhaltsverzeichnis auf section-Ebene erscheinen
+{glossaries}
+
 
 \usepackage{fancyhdr}                % Erweiterte Konfiguration von Kopf/Fußzeile
 \usepackage{hyperref}                % Querverweise, Hyperlink, pdf-Konfiguration, etc.
@@ -24,7 +38,7 @@
 
 \usepackage{graphicx}                % Erweiterte Unterstützung von Graphiken
 \usepackage{textpos}                 % Beliebig platzierte Textboxen
-\usepackage[table]{xcolor}                  % TeX-Engine-unabhängige Definition von Farben
+\usepackage{xcolor}                  % TeX-Engine-unabhängige Definition von Farben
 
 \usepackage[numbers]{natbib}         % Weiter Optionen für die Bibliographie
 

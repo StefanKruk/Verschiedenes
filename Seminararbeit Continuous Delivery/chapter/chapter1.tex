@@ -7,40 +7,21 @@ In diesem Kapitel werden zunächst die Grundlagen erläutert, welche für das Ve
 Grundsätzlich ist das in dieser Arbeit behandelnde Thema für jede Person mit einer allgemeinen Informatikausbildung ohne weiteres zu verstehen. Es kann bei dieser Personengruppe, die Kenntnisse über grundsätzlichen Prozess einer Softwareentwicklung vorausgesetzt werden. Trotzdem soll im weiteren Verlauf einige Begriffe genauer erklärt werden.
 \\\\
 \textbf{Delivery}\\
-Delivery (zu deutsch Ausliefern) beschreibt das Ausliefern, als das Verteilen, von Artefakten. Dabei kann das Artefakt eine ganze Applikation oder nur ein Service in einer Service Orientierten Architektur sein.
+Delivery (zu deutsch Ausliefern) beschreibt das Ausliefern (das Verteilen) von Artefakten. Dabei kann das Artefakt eine ganze Applikation oder nur ein Service in einer Service Orientierten Architektur sein.
 \\\\
 \textbf{Deployment}\\
-Unter Deployment (zu deutsch Softwareverteilung) versteht man das installieren, eines Artefaktes. Auch hier kann ein Artefakt eine ganze Applikation oder nur ein Service sein.  Die beiden Begriffe "`Delivery"' und "`Deployment"' werden im Kapitel \ref{chap:continuousDelivery} \nameref{chap:continuousDelivery}  noch weiter erklärt und von einander abgegrenzt.
-\\\\
-\textbf{Softwareentwicklung}\\
-Im allgemeinen wird Softwareentwicklung als ein Prozess zur Erstellung von Software verstanden, welche folgende Phase beinhaltet:
-\begin{enumerate}
-	\item Planung
-	\item Analyse
-	\item Entwurf
-	\item Implementierung
-	\item Validierung und Verifikation
-	\item Abnahme
-	\item Release
-\end{enumerate}
-Im Rahmen dieser Arbeit wird der Begriff Softwareentwicklung jedoch als Synonym für die Phasen vier bis sieben genommen. Kapitel \ref{sec:problemstellung} \nameref{sec:problemstellung} verdeutlicht noch einmal genauer, die Relevanz dieser Phasen.
-\\\\
-\textbf{Qualität}\\
-Qualität ist nach der DIN 55350 wie folgt definiert: "Qualität ist die Beschaffenheit einer Einheit bezüglich ihrer Eignung, festgelegte und vorausgesetzte Erfordernisse zu erfüllen. Dabei wird ergänzend die Einheit als materieller oder immaterieller Gegenstand der Betrachtung und die Beschaffenheit als Gesamtheit der Merkmale und Merkmalswerte definiert."
-\\\\
-\textbf{Qualitätssicherung}\\
-Die Qualitätssicherung sollte ein in die Softwareentwicklung integrierter Prozess sein, um die Einhaltung der für das Projekt festgelegten Qualitätsmerkmale zu überprüfen und so die Qualität des entstehenden Produktes zu gewährleisten. Zur Überprüfung dieser Merkmale können verschiedene Werkzeuge eingesetzt werden, die in Kapitel \ref{chap:continuousDelivery} \nameref{chap:continuousDelivery} genauer erläutert werden.
+Unter Deployment (zu deutsch Softwareverteilung) versteht man das installieren, eines Artefaktes. Auch hier kann ein Artefakt eine ganze Applikation oder nur ein Service sein.
 
 \section{Problemstellung}
 \label{sec:problemstellung}
-Wir leben in einem Zeitalter in der fast alles über das Internet gesteuert wird. Viele Unternehmen, nennen wir sie Internetunternehmen, haben sich daher darauf spezialisiert, ihre Dienste nur im Internet anzubieten. Jedoch kann sich das Interessen der Nutzer relativ schnell ändern und durch die Möglichkeit einfach und unkompliziert zu anderen Anbietern zu wechseln entsteht ein großer Wettbewerbsdruck bei den einzelnen Unternehmen. Ist das Time-to-Market eines Unternehmens daher sehr Zeitaufwändig, kann dies zum Verlust vieler Kunden und daher im schlimmsten Fall auch zur Insolvenz des Unternehmens führen.
+Durch fortschreitende Technologien, werden Arbeitsabläufe immer automatisierter. Dadurch wird die Zeitspanne für \gls{glos:TTM} immer relevanter und kürzer, wodurch der Wettbewerbsdruck wächst. Daher ist es wichtig eine kurze TTM zu haben.
 
 Eberhard Wolff beschreibt in \cite[S. 2 ff.]{EWolff:CD} einen Fall eines fiktiven E-Commerce Unternehmens.
 Das Unternehmen hatte nur eine große Software, den E-Commerce Shop. Durch neue Angebote und das dauerhaft ändernde Interesse der Kunden mussten neue Funktionen regelmäßig und in möglichst kurzen abständen dem Kunden zugänglich gemacht werden. Dies wurde jedoch durch die Tatsache behindert, dass die Software über die Jahre gewachsen ist und das erneute Ausliefern der Software für eine Funktion sich nicht lohnte. Daher wurde nur einmal im Monat neu Deployed. Der Prozess wurde außerdem dadurch behindert, dass die Qualitätssicherung zwar ein Teil der Softwareentwicklung war, jedoch Tests nur manuell ausgeführt worden sind, wodurch regelmäßig Fehler übersehen wurden.
 
 die Software wurde schließlich mit Fehlern ausgeliefert und es stellte sich erst am nächsten Tag, oder schlimmer nach einer Woche, heraus, dass sie nicht einwandfrei funktionierte. Entwickler mussten also ihre Arbeit unterbrechen und den Fehler finden und beheben. Da jedoch ein wenig Zeit vergangen ist, seit dem die Entwickler an diesem Teil des Codes gearbeitet haben, müssen sie sich erst wieder einarbeitet, bis sie den Fehler finden und beheben können.
 
-Das Unternehmen hat also eine große TTM-Zeit und dadurch hohe kosten. Zusätzlich entstehen immer wieder fehlerhafte Releases wodurch zusätzliche Kosten bzw. Einbußen entstehen.
+Das Unternehmen hatte eine große TTM-Zeit und dadurch hohe kosten. Zusätzlich entstehen fehlerhafte Releases wodurch zusätzliche Kosten bzw. Einbußen entstehen.
 
 \section{Ziel der Arbeit}
 \label{sec:zielDerArbeit}
@@ -48,18 +29,10 @@ In dieser Arbeit soll Continuous Delivery genauer erläutert und dabei folgende 
 
 \begin{enumerate}
 	\item Was ist Continuous Delivery?
-	\item Wie sind die konkreten Phasen definiert?
-	\item Was sind die Vor- und Nachteile von Continuous Delivery?
-	\item Welche Werkzeuge werden benötigt?
+    \item Was ist eine Continuous Delivery Pipeline?
 	\item Wie kann man Continuous Delivery in ein bestehenden Entwicklungsprozess einbinden?
 \end{enumerate}
 
 Die erste Leitfrage soll den Begriff Continuous Delivery und seine Herkunft erläutert. Dabei wird kurz auf die Geschichte der Softwareentwicklungsprozesse eingegangen und erläutert wie sich der Prozess zum heutigen unterscheidet. Außerdem wird in diesem Zusammenhang noch einmal erläutert, warum sich die Prozesse verändert haben bzw. verändert werden mussten.
 
-Die zweite Leitfrage führt die konkreten Phasen ein und beleuchtet die wesentlichen Unterschiede zueinander, sowie ihre Bedeutung und Wichtigkeit. Zudem sollen die Phasen zueinander abgegrenzt werden und mit denen bestehender Entwicklungsphasen verglichen werden.
-
-Die Vor- und Nachteile dieses Prozesses sollen mit der dritten Leitfrage geklärt werden. Jeder Prozess hat Vor- und Nachteile. In diesem Zusammenhang wird daher beleuchtet, wann es sich für ein Unternehmen lohnt Continuous Delivery einzuführen und wann nicht. Zusätzlich soll der Auffand beschrieben werden, der dieser Prozess mit sich bringt.
-
-Nachdem erläutert wurde, was Continuous Delivery ist, wie es strukturiert ist und welche allgemeinen Vor- und Nachteile der Prozess mit bringt, soll in der vierten Leitfrage geklärt werden, welche Werkzeuge benötigt werden, um den Prozess nutzen zu können. Dabei soll kurz auf jedes einzelne Werkzeug eingegangen und erläutert werden, wofür es gut ist und für welche Phase es wichtig ist.
-
-Abschließend wird die in Kapitel \ref{sec:problemstellung} erläuterte Problemstellung noch einmal aufgefasst und damit für die fünfte Leitfrage ein konkreter Anwendungsfall eingeführt. Dazu wird noch einmal genauer auf den Anwendungsfall eingegangen, um diesen mit dem Prozess des Continuous Delivery Ansatzes zu lösen.
+Darauf aufbauend, soll eine Continuous Delivery Pipeline erläutert und aufgebaut werden, anhand dieser wird mit der folgenden und abschließenden Leitfrage, ein bestehender Entwicklungsprozess in Continuous Delivery eingebunden.

@@ -1,2 +1,37 @@
 \chapter{Continuous Delivery}
 \label{chap:continuousDelivery}
+Martin Fowler schreibt \cite{Fowler:CD}:
+\\
+"`Continuous Delivery is a software development discipline where you build software in such a way that the software can be released to production at any time. [..] You achieve continuous delivery by continuously integrating the software done by the development team, building executables, and running automated tests on those executables to detect problems. Furthermore you push the executables into increasingly production-like environments to ensure the software will work in production. To do this you use a Deployment Pipeline."' 
+\\
+Wie von Martin Fowler zu lesen ist, ist Continuous Integration ein Teilprozess von Continuous Delivery und beschreibt dessen Grundlagen. Bevor Continuous Delivery genauer erläutert werden kann, muss zunächst der Begriff Continuous Integration erläutert werden.
+
+\subsection{Continuous Integration}\
+\label{subsec:ContinuousIntegration}
+"`At all times you know where you are, what works, what doesn't, the outstanding bugs you have in your system "'\cite{Fowler:CI}. 
+\\
+Das ist die Aufgabe von Continuous Integration. Um dies zu erreichen ist es notwendig jede Teilaufgabe innerhalb der Entwicklung in den Prozess mit einzubinden. Das Ziel ist es so früh wie möglich Bugs zu erkennen und diese zu beheben. Dafür muss jeder Prozess automatisiert werden. Vor allem muss es möglich sein, Tests automatisiert durchführen zu können. Eine einfache Continuous Integration zeigt folgendes Bild:
+
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/continuous_integration}\
+    \quelle\url{https://insights.sei.cmu.edu/devops/2015/01/continuous-integration-in-devops-1.html}
+    \caption[Continuous Integration]{Continuous Integration\\}
+    \label{fig:ContinuousIntegration}  
+\end{figure}\noindent 
+Wie zu erkennen ist, sorgt ein zentraler "`Continuous Integration Server"' für das Bauen und Testen der Software und informiert die zuständigen Entwickler über den Status. In der Regel wird dies bei jeder Code Änderung durchgeführt, sodass direkt erkannt wird, ob eine Änderung des Codes zu einem Erfolg oder einem Fehlschlag führt.
+
+Continuous Delivery ist eine natürliche Erweiterung von Continuous Integration. Trotzdem unterscheiden sich die beiden Begriffe nicht wirklich von einander. Während bei der Continuous Integration wert darauf gelegt wird, Software möglichst Fehlerfrei zu erzeugen, wird bei Continuous Delivery  darauf wert gelegt, Software möglichst regelmäßig zu deployen. Continuous Delivery beinhaltet Continuous Integration und erweitert diese um das ausliefern. In der nachfolgenden Sektion, wird noch einmal auf den unterschied zwischen Continuous Integration und Delivery eingegangen
+
+\subsection{Continuous Delivery Pipeline}
+\label{subsec:Continuous Delivery Pipeline}
+Die Continuous Delivery Pipeline beschreibt die Teilprozesse, welche durchlaufen werden müssen, um Continuous Delivery durchführen zu können. Die Folgende Abbildung zeigt eine mögliche Pipeline. Das Deployen in die Produktionsumgebungen "`PRODBLUE"' und "`PRODGREEN"' muss jedoch manuel, durch klicken auf Trigger, erfolgen.
+
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/pipeline}\
+    \quelle\url{https://blog.codecentric.de/en/2012/04/continuous-delivery-in-the-cloud-part1-overview/}
+    \caption[Continuous Delivery Pipeline]{Continuous Delivery Pipeline\\}
+    \label{fig:ContinuousDeliveryPipeline}  
+\end{figure}\noindent 
+Wie man in der Abbildung sehen kann beinhaltet die Pipeline alle nötigen schritte, welche zuvor in \nameref{subsec:ContinuousIntegration} besprochen wurden. Hier sei noch einmal erwähnt, dass Continuous Integration alle Prozesse, bis auf den letzten (das Deployment), beinhaltet. Continuous Integration und Delivery unterscheiden sich, wie schon zu vor erwähnt, nur beim letzten Schritt, dem Deployen. Dieser wird jedoch bei Continuous Delivery Manuel ausgeführt. Unter ausgeführt ist hierbei zu verstehen, dass ein Prozess, hier durch einen klick, gestartet wird, welcher die Software, bzw. das Artefakt, automatisch in die Produktion bringt.

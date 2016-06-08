@@ -11,6 +11,8 @@
 
 \input{preamble/macros}
 
+\input{preamble/glossar}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ************************** BEGINN OF DOCUMENT *******************************
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -22,7 +24,14 @@
 \setcounter{page}{1}
 \pagenumbering{roman}
 
+
 \input{misc/tables}
+
+%Glossar ausgeben
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{\numberline{}Glossar}
+\printglossary[style=altlist,title=Glossar]
+
+\newpage
 
 % ***************************** MAIN MATTER ***********************************
 \pagestyle{fancy}
