@@ -6,7 +6,7 @@ Martin Fowler schreibt \cite{Fowler:CD}:
 \\
 Wie von Martin Fowler zu lesen ist, ist Continuous Integration ein Teilprozess von Continuous Delivery und beschreibt dessen Grundlagen. Bevor Continuous Delivery genauer erläutert werden kann, muss zunächst der Begriff Continuous Integration erläutert werden.
 
-\subsection{Continuous Integration}\
+\section{Continuous Integration}\
 \label{subsec:ContinuousIntegration}
 "`At all times you know where you are, what works, what doesn't, the outstanding bugs you have in your system "'\cite{Fowler:CI}. 
 \\
@@ -23,7 +23,7 @@ Wie zu erkennen ist, sorgt ein zentraler "`Continuous Integration Server"' für 
 
 Continuous Delivery ist eine natürliche Erweiterung von Continuous Integration. Trotzdem unterscheiden sich die beiden Begriffe nicht wirklich von einander. Während bei der Continuous Integration wert darauf gelegt wird, Software möglichst Fehlerfrei zu erzeugen, wird bei Continuous Delivery  darauf wert gelegt, Software möglichst regelmäßig zu deployen. Continuous Delivery beinhaltet Continuous Integration und erweitert diese um das ausliefern. In der nachfolgenden Sektion, wird noch einmal auf den unterschied zwischen Continuous Integration und Delivery eingegangen
 
-\subsection{Continuous Delivery Pipeline}
+\section{Continuous Delivery Pipeline}
 \label{subsec:Continuous Delivery Pipeline}
 Die Continuous Delivery Pipeline beschreibt die Teilprozesse, welche durchlaufen werden müssen, um Continuous Delivery durchführen zu können. Dabei wird die Pipeline automatisch durchlaufen. Die Folgende Abbildung zeigt eine mögliche Pipeline. Das Deployen in die Produktionsumgebungen "`PRODBLUE"' und "`PRODGREEN"' muss jedoch manuel, durch klicken auf Trigger, erfolgen.
 
@@ -36,7 +36,7 @@ Die Continuous Delivery Pipeline beschreibt die Teilprozesse, welche durchlaufen
 \end{figure}\noindent 
 Wie man in der Abbildung sehen kann beinhaltet die Pipeline alle nötigen schritte, welche zuvor in \nameref{subsec:ContinuousIntegration} besprochen wurden. Hier sei noch einmal erwähnt, dass Continuous Integration alle Prozesse, bis auf den letzten (das Deployment), beinhaltet. Continuous Integration und Delivery unterscheiden sich, wie schon zu vor erwähnt, nur beim letzten Schritt, dem Deployen. Dieser wird jedoch bei Continuous Delivery Manuel ausgeführt. Unter ausgeführt ist hierbei zu verstehen, dass ein Prozess, hier durch einen klick, gestartet wird, welcher die Software, bzw. das Artefakt, automatisch in die Produktion bringt.
 
-\subsection{Einführung von Continuous Delivery}
+\section{Einführung von Continuous Delivery}
 \label{subsec:EinfuehrungCD}
 In Kaptiel \ref{sec:problemstellung} \nameref{sec:problemstellung} wurde bereits ein Fall beschrieben, in der kein Continuous Delivery eingesetzt wird. Darauf aufbauend wird nun Schritt für Schritt die vorhandene Softwareentwicklung in Continuous Delivery überführt.
 \\\\
