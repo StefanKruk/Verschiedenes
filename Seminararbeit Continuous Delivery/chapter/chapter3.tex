@@ -71,7 +71,11 @@ und so ist es auch hier. Continuous Delivery kann beliebig verändert und erweit
 \begin{quote}
 	"'Continuous Integration is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible. Many teams find that this approach leads to significantly reduced integration problems and allows a team to develop cohesive software more rapidly. This article is a quick overview of Continuous Integration summarizing the technique and its current usage. [..] At all times you know where you are, what works, what doesn't, the outstanding bugs you have in your system "'\cite{Fowler:CI}. 
 \end{quote}
-Das ist die Aufgabe von Continuous Integration. Um dies zu erreichen ist es notwendig jede Teilaufgabe innerhalb der Entwicklung in den Prozess mit einzubinden. Das Ziel ist es so früh wie möglich Bugs zu erkennen und diese zu beheben. Dafür muss jeder Prozess automatisiert werden. Vor allem muss es möglich sein, Tests automatisiert durchführen zu können. Eine einfache Continuous Integration zeigt folgendes Bild:
+Das ist die Aufgabe von Continuous Integration. Um dies zu erreichen ist es notwendig jede Teilaufgabe innerhalb der Entwicklung in den Prozess mit einzubinden. 
+\begin{quote}
+	"'CI literally started to change how companies looked at Build Managment, Release Management, Deployment Automation, and Test Orchestration [..]."'\cite{IEEE:CDMitJenkins}
+\end{quote}
+Das Ziel ist es so früh wie möglich Bugs zu erkennen und diese zu beheben. Dafür muss jeder Prozess automatisiert werden. Vor allem muss es möglich sein, Tests automatisiert durchführen zu können. Eine einfache Continuous Integration zeigt folgendes Bild:
 
 \begin{figure}[htb]
 	\centering 
@@ -104,6 +108,35 @@ Wie man in der Abbildung sehen kann beinhaltet die Pipeline alle nötigen schrit
 \section{Werkzeuge von Continuous Delivery}
 \label{sec:WerkzeugeCD}
 Es wurde bisher erläutert was Continuous Delivery ist, welches Vorteile es hat und welche Voraussetzungen gegeben sein müssen, damit Continuous Delivery eingeführt werden kann. Es wurde ebenfalls mit Abschnitt \ref{sec:ContinuousIntegration} \nameref{sec:ContinuousIntegration} und Abbildung \ref{fig:ContinuousIntegration} \nameref{fig:ContinuousIntegration} der Begriff \textit{Continuous Integration Server} eingeführt. Es wurde jedoch noch nicht geklärt was dieser Server genau ist und welche konkreten Aufgaben dieser besitzt. Dies soll in diesem Abschnitt geklärt werden. Zudem sollen weitere Werkzeuge vorgestellt werden, der für den \textit{Continuous Delivery Prozess} nützlich sein können.
+In Abschnitt \ref{sec:ContinuousIntegration} \nameref{sec:ContinuousIntegration} wurde der Begriff "'Continuous Integration Server"' erwähnt, jedoch nicht genauer erläutert. Was es mit diesem Begriff genau auf sich hat, wird nun geklärt. Es soll jedoch nicht die konkrete Funktionsweise von Werkzeugen erläutert werden. Einige Werkzeuge werden zum besseren Verständnis genauer erklärt als andere.
+\\\\
+\subsubsection*{Continous Integration Server: Jenkins}
+Der Begriff \textit{Continuous Integration} wurde bereits genau erläutert. Ein \textit{Continuous Delivery Server} ist nichts anderes, als eine Applikation die auf einem Server läuft, welche die nötigen Teilprozesse von \textit{Continuous Integration} ausführt. Wird noch einmal die Abbildung \ref{fig:ContinuousIntegration} \nameref{fig:ContinuousIntegration} betrachtet, ist der Server, auf dem die Applikation läuft, direkt neben der Box, in der "Continuous Integration Server" steht abgebildet. Ein Beispiel "Continuous Integration Server" könnte \textit{Jenkins} sein. \textit{Jenkins} ist ein sogenanntes "'Build and Management"' Werkzeug.
+
+\begin{quote}
+	"'Jenkins is an Open Source (OSS) CI Platform, whose initial objective has been the automation of the  and test process. The build system is completely written in Java and is easily extensible thanks to its plugins architecture and to extension points left into its object model. this makes of jenkins a highly customizable and flexible tool, able to cover many possible scenarios and requirements thatnks to thousands of plugins developed by its huge Open Source Community."'\cite{IEEE:CDMitJenkins}
+\end{quote}
+Ein "'Continuous Integration Server"'  wie \textit{Jenkins} ist die zentrale applikation, wenn es um \textit{Continuous Integration/Delivery} geht.
+\begin{quote}
+	"'[..] If CI startet as automation of the development phase only, pretty soon the revolution embraced the test-phase of the QA team and the deployment into various envirnment of the Ops team, involving the whole lifecycle of a product and introducing a new concept: Continuous Delivery (CD)"'\cite{IEEE:CDMitJenkins}
+\end{quote}
+\textit{Jenkins} hat dafür gesorgt, dass \textit{Continuous Delivery} leichter wurde. Mit der Applikation war es nun möglich, in wenigen Schritten eine eigene \textit{Continuous Delivery Pipeline} aufzubauen.
+
+\subsubsection*{Build-Management-Tool}
+\textit{Build-Management-Tool}, nicht zu verwechsel mit einem "'Build and Management"' Werkzeug, dient in erster Linie dazu, das bauen einer Software zu standardisieren. Einige bekannte Vertreter für Java sind: Maven, Ant, Gradle. Jeder dieser drei \textit{Build-Management-Tools} arbeitet auf Basis einer zentralen Datei in der die Anweisungen stehen, wie die Software gebaut werden soll. Das beinhaltet unter anderem die nötigen Abhängigkeiten (auch Dependency-Management genannt), sowie die Pfade zu den Dateien, welche zusätzlich eingebunden werden sollen.
+\\\\
+Durch \textit{Build-Management-Tools} können zudem zusätzliche Aktionen durchgeführt werden, wie zum Beispiel das ausführen von Unit-Tests, sowie die Steuerung darüber, was bei fehlgeschlagenen Tests passieren soll.
+\\\\
+Unter anderem nutzt \textit{Jenkins} solche \textit{Build-Management-Tools} zum bauen der jeweiligen Projekte.
+
+\subsubsection*{Automatischer Aufbau der Infrastruktur}
+Nachdem Werkzeuge eingeführt worden sind, mit deren Hilfe standardisierte Software innerhalb und außerhalb von \textit{Continuous Integration}, gebaut werden kann. Muss, damit \textit{Continuous Delivery} durchgeführt und ebenfalls standardisiert werden kann, eine bzw. zwei neue Werkzeuge eingeführt werden.
+\\\\
+Damit Software automatisch, im Rahmen von \textit{Continuous Delivery}, ausgeliefert werden kann, muss neben den Tests auch das aufbauen der Infrastruktur automatisiert werden. Zwei Werkzeuge um dies zu erreichen sind \textit{Chef} und \textit{Puppet}.
+\begin{quote}
+	"'Puppet and Chef are the most commonly used IT Automation Tools used by DevOps to set up the infrastructure, speeding up the process of installing the required software, moddleware and various dependencies."'\cite{IEEE:CDMitJenkins}
+\end{quote}
+Damit Software ohne Probleme automatisch deployed werden kann, müssen ggf. Änderungen an der Infrastruktur durchgeführt werden bzw. eine neue Infrastruktur aufgesetzt werden. Letzteres ist zum Beispiel bei der Skalierung notwendig. Damit jede Instanz gleich, bzw. jede Änderung der vorhandenen Instanzen nachvollzogen werden kann, müssen alle Schritte dokumentiert werden. Die technische Dokumentation geschieht mit Hilfe von \textit{Chef/Puppet}. Nach dieser Dokumentation kann das jeweilige Werkzeug gestartet werden und eine standardisierte Infrastruktur wird aufgebaut.
 
 \section{Einführung von Continuous Delivery}
 \label{sec:EinfuehrungCD}
