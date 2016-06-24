@@ -105,10 +105,10 @@ Die Folgende Abbildung zeigt eine mögliche Pipeline. Das Deployen in die Produk
 \end{figure}\noindent 
 Wie man in der Abbildung sehen kann beinhaltet die Pipeline alle nötigen schritte, welche zuvor in \nameref{subsec:ContinuousIntegration} besprochen wurden. Hier sei noch einmal erwähnt, dass Continuous Integration alle Prozesse, bis auf den letzten (das Deployment), beinhaltet. Continuous Integration und Delivery unterscheiden sich, wie schon zu vor erwähnt, nur beim letzten Schritt, dem Deployen. Dieser wird jedoch bei Continuous Delivery Manuel ausgeführt. Unter ausgeführt ist hierbei zu verstehen, dass ein Prozess, hier durch einen klick, gestartet wird, welcher die Software, bzw. das Artefakt, automatisch in die Produktion bringt.
 
-\section{Werkzeuge von Continuous Delivery}
+\section{Werkzeuge für Continuous Delivery}
 \label{sec:WerkzeugeCD}
-Es wurde bisher erläutert was Continuous Delivery ist, welches Vorteile es hat und welche Voraussetzungen gegeben sein müssen, damit Continuous Delivery eingeführt werden kann. Es wurde ebenfalls mit Abschnitt \ref{sec:ContinuousIntegration} \nameref{sec:ContinuousIntegration} und Abbildung \ref{fig:ContinuousIntegration} \nameref{fig:ContinuousIntegration} der Begriff \textit{Continuous Integration Server} eingeführt. Es wurde jedoch noch nicht geklärt was dieser Server genau ist und welche konkreten Aufgaben dieser besitzt. Dies soll in diesem Abschnitt geklärt werden. Zudem sollen weitere Werkzeuge vorgestellt werden, der für den \textit{Continuous Delivery Prozess} nützlich sein können.
-In Abschnitt \ref{sec:ContinuousIntegration} \nameref{sec:ContinuousIntegration} wurde der Begriff "'Continuous Integration Server"' erwähnt, jedoch nicht genauer erläutert. Was es mit diesem Begriff genau auf sich hat, wird nun geklärt. Es soll jedoch nicht die konkrete Funktionsweise von Werkzeugen erläutert werden. Einige Werkzeuge werden zum besseren Verständnis genauer erklärt als andere.
+Es wurde bisher erläutert was Continuous Delivery ist, welches Vorteile es hat und welche Voraussetzungen gegeben sein müssen, damit Continuous Delivery eingeführt werden kann. Es wurde ebenfalls mit Abschnitt \ref{sec:ContinuousIntegration} \nameref{sec:ContinuousIntegration} und Abbildung \ref{fig:ContinuousIntegration} \nameref{fig:ContinuousIntegration} der Begriff \textit{Continuous Integration Server} eingeführt. Es wurde jedoch noch nicht geklärt was dieser Server genau ist und welche konkreten Aufgaben dieser besitzt. Dies soll in diesem Abschnitt geklärt werden. Zudem sollen weitere Werkzeuge vorgestellt werden, der für den \textit{Continuous Delivery Prozess} nützlich sein können. Es soll jedoch nicht die konkrete Funktionsweise von Werkzeugen erläutert werden. Einige Werkzeuge werden zum besseren Verständnis genauer erklärt als andere.
+In Abschnitt \ref{sec:ContinuousIntegration} \nameref{sec:ContinuousIntegration} wurde der Begriff "'Continuous Integration Server"' erwähnt, jedoch nicht genauer erläutert. Was es mit diesem Begriff genau auf sich hat, wird nun geklärt. 
 \\\\
 \subsubsection*{Continous Integration Server: Jenkins}
 Der Begriff \textit{Continuous Integration} wurde bereits genau erläutert. Ein \textit{Continuous Delivery Server} ist nichts anderes, als eine Applikation die auf einem Server läuft, welche die nötigen Teilprozesse von \textit{Continuous Integration} ausführt. Wird noch einmal die Abbildung \ref{fig:ContinuousIntegration} \nameref{fig:ContinuousIntegration} betrachtet, ist der Server, auf dem die Applikation läuft, direkt neben der Box, in der "Continuous Integration Server" steht abgebildet. Ein Beispiel "Continuous Integration Server" könnte \textit{Jenkins} sein. \textit{Jenkins} ist ein sogenanntes "'Build and Management"' Werkzeug.
@@ -137,6 +137,11 @@ Damit Software automatisch, im Rahmen von \textit{Continuous Delivery}, ausgelie
 	"'Puppet and Chef are the most commonly used IT Automation Tools used by DevOps to set up the infrastructure, speeding up the process of installing the required software, moddleware and various dependencies."'\cite{IEEE:CDMitJenkins}
 \end{quote}
 Damit Software ohne Probleme automatisch deployed werden kann, müssen ggf. Änderungen an der Infrastruktur durchgeführt werden bzw. eine neue Infrastruktur aufgesetzt werden. Letzteres ist zum Beispiel bei der Skalierung notwendig. Damit jede Instanz gleich, bzw. jede Änderung der vorhandenen Instanzen nachvollzogen werden kann, müssen alle Schritte dokumentiert werden. Die technische Dokumentation geschieht mit Hilfe von \textit{Chef/Puppet}. Nach dieser Dokumentation kann das jeweilige Werkzeug gestartet werden und eine standardisierte Infrastruktur wird aufgebaut.
+
+\subsection{Versionierung von Artefakte}
+Zuletzt muss noch eine Möglichkeit gefunden werden, um die einzelnen Versionen von Artefakten zu Versionieren und sicher zu lagern. Hier sei auf die Werkzeuge \textit{Nexus} bzw. \textit{Artifactory} verwiesen.
+\\\\
+Beide werkzeuge
 
 \section{Einführung von Continuous Delivery}
 \label{sec:EinfuehrungCD}
