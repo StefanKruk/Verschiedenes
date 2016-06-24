@@ -1,31 +1,96 @@
 \chapter{Continuous Delivery}
 \label{chap:continuousDelivery}
-Martin Fowler schreibt \cite{Fowler:CD}:
-\\
-"`Continuous Delivery is a software development discipline where you build software in such a way that the software can be released to production at any time. [..] You achieve continuous delivery by continuously integrating the software done by the development team, building executables, and running automated tests on those executables to detect problems. Furthermore you push the executables into increasingly production-like environments to ensure the software will work in production. To do this you use a Deployment Pipeline."' 
-\\
-Wie von Martin Fowler zu lesen ist, ist Continuous Integration ein Teilprozess von Continuous Delivery und beschreibt dessen Grundlagen. Bevor Continuous Delivery genauer erläutert werden kann, muss zunächst der Begriff Continuous Integration erläutert werden.
+Continuous Delivery beschreibt ein Prozess, der mit Hilfe verschiedener Werkzeuge, den Softwareauslieferungsprozess verbessern soll. Durch Techniken wie Continuous Integration, automatisieren von Tests und kontinuierlichen Installationen soll qualitativ hochwertige Software erstellt werden.
 
-\section{Continuous Integration}\
-\label{subsec:ContinuousIntegration}
-"`At all times you know where you are, what works, what doesn't, the outstanding bugs you have in your system "'\cite{Fowler:CI}. 
-\\
+\begin{quote}\noindent
+"'Officially, we describe continuous delivery as the ability to release software whenerver we want. This could be weekly or daily deployments to production; it could mean every check-in goes straight to production"'\cite{RallySofware2013}
+\end{quote}
+Es soll nicht nur qualitativ hochwertige Software erstellt werden, sondern auch die Möglichkeit geboten werden, Software zu jederzeit zu veröffentlichen (releasen).
+\\\\
+Auch Martin Fowler schreibt \cite{Fowler:CD}:
+
+\begin{quote}
+"'Continuous Delivery is a software development discipline where you build software in such a way that the software can be released to production at any time. [..] You achieve continuous delivery by continuously integrating the software done by the development team, building executables, and running automated tests on those executables to detect problems. Furthermore you push the executables into increasingly production-like environments to ensure the software will work in production. To do this you use a Deployment Pipeline."' 
+\end{quote}\noindent
+Continuous Delivery soll den Softwareauslieferungsprozess verbessern, welche Vorteile dieses im einzelnen mit bringt, wird als nächstes beschrieben.
+
+\section{Warum Continuous Delivery?}
+\label{sec:WarumContinuousDelivery}
+Der Softwareentwicklungsprozess unterliegt einem ständigen Wandel. Viele Unternehmen arbeiten nach agilen Vorgehensmodelle wie Scrum, um Software zu entwickeln. Andere Unternehmen verwenden ggf. andere Vorgehensmodelle wie das Wasserfallmodell, jedoch alle Unternehmen arbeiten nach dem gleichen Prinzip: \textit{Sie wollen Software möglichst qualitativ Hochwertig und Preis günstig Entwickeln}. Diese beiden Aussagen widersprechen sich jedoch oft, denn damit Software qualitativ Hochwertig erstellt werden kann, müssen ausführliche und gründliche Tests durchgeführt werden, welche die Qualität der Software sicherstellt. Oft werden diese Test manuell durchgeführt und nehmen viel Zeit in Anspruch, weshalb Unternehmen diesen Teil der Softwareentwicklung meist verkürzen wollen um Geld zu Sparen. In den meisten Unternehmen existiert zudem ein fester Zeitpunkt, an dem die Software fertig gestellt sein muss.
+\\\\
+Ein weiteres Problem besteht darin, wenn Software nur jeden Monat ausgeliefert wird. Enthält die Produktive Software einen Fehler, dauert es im schlimmsten Fall einen Monat, bis dieser behoben wird.
+\\\\
+Continuous Delivery ermöglicht durch automatisierte Tests zum einen die Zeit, die für die Durchführung der Tests, benötigt wird zu reduzieren und zum anderen die Tests zu standardisieren. Das heißt, ein Tests kann beliebig oft ausgeführt und immer das selbe Ergebnis erwartet werden. Dadurch ist es möglich die selben Tests nach jeder Änderung durchzuführen und zu überprüfen ob Fehler aufgetreten sind oder nicht.
+\\\\
+Jedoch spielt auch der Erfolg des Produktes eine große Rolle. Es wurde zuvor erwähnt, dass Unternehmen oft Geld einsparen wollen, in dem sie den Testzeitraum verkürzen, wodurch die Qualität leidet.
+\begin{quote}
+	"'The Time to Market of a product critically affects its success especially when talkng about technologies, which have to be delivered while they are still new. In such environemnt, then, what really differentiates the product on the market is not only the product itself, or its quality, but also the speed at which it can evolve: for a company, taking the product to market fast means to win over the competitors and being always aligned with new tendencies."'\cite{IEEE:CDMitJenkins}
+\end{quote}
+Besitzt ein Produkt eine zulange \gls{glos:TTM} Zeitspanne ist die Wahrscheinlichkeit höher, dass der Erfolg eines Produktes nicht so hoch ist, wie wenn die Zeitspanne kürzer wäre. Zudem spielen Konkurrenzunternehmen eine wichtige Rolle. ist die \gls{glos:TTM} Zeitspanne zu groß, kann ein anderes Unternehmen ein gleichwertiges Produkt auf den Markt bringen und so den Erfolg des eigenen Produktes noch weiter verringern. Durch Continuous Delivery kann die \gls{glos:TTM} Zeitspanne verkürzt und neue Produkte/Funktionen schneller auf dem Markt etabliert werden.
+
+\subsection{Die Entwickler}
+\label{subsec:DieEntwickler}
+\begin{quote}
+	"'Selling continuous delivery to our development team was relatively easy. The Software engieerns [..] are eager to experiment with new technologies and methodologies. They understood that smaller batch size would lead to fewer defects-in production as we limited the size of code changes and garnered fast feedback from our systems."' \cite{RallySofware2013}
+\end{quote}
+Durch Continuous Delivery erhält der Entwickler zum einen die Möglichkeit mit neuen Technologien zu experimentieren, zum anderen erhalten sie direktes Feedback vom System ob die durchgeführten Änderungen funktionieren oder den Code zerbrechen.
+
+\subsection{Das Unternehmen}
+\label{subsec:DasUnternehmen}
+Es gibt verschiedene Gründe für die Einführung von Continuous Delivery. Rally Software zum Beispiel hatte nur alle zwei Monate realeased. 
+
+\begin{quote}
+	"'Realeasing every two months is painful for a number of reasons: (1) when you miss a release you potentially have to wait another eight weeks to dliver your features to customers; [..]"'\cite{RallySofware2013}
+\end{quote}
+Eines der größten Probleme ist das verpassen von Release-Zeitpunkten. Es muss 4 Monate gewartet werden, bis eine Funktion in Produktion geht. Durch Continuous Delivery wird diese Zeit erheblich verringert. Funktionen müssen nicht zu einem fixen Zeitpunkt fertig gestellt werden, sondern können, sobald diese fertiggestellt, direkt im Continuous Integration Prozess getestet und released werden.
+
+\section{Voraussetzungen für Continuous Delivery}
+\label{sec:VoraussetzungenCD}
+Bisher wurde beschrieben welche Vorteile Continuous Delivery bietet, jedoch nicht welche Voraussetzungen gegeben sein müssen, damit es eingeführt werden kann.
+
+\begin{quote}
+	"'The improved test coverage, rapid feedback cylces, scrutiny of monitoring systems, and fast rollback mechanisms result in a far safer environment for shipping code. But it is not free; it is not pailess. It is important to have the right level of sponsorship before you begin."'\cite{RallySofware2013}
+\end{quote}
+Konkret heißt das, bevor Continuous Delivery eingeführt werden kann, muss zunächst einmal geklärt werden, warum man diesen Schritt durchführen möchte und welche Ziele damit verfolgt werden sollen. Argumente wie: \textit{Es ermöglicht schneller releases.} oder \textit{Continuous Delivery bringt uns mehr Geld.} sind schlichtweg ein falscher Ansatz.
+\\\\
+Vorallem müssen die beteiligten Personen überzeugt werden können. Dafür ist es umso wichtiger zu wissen, wohin man möchte und mit welchen mitteln.
+
+\begin{quote}
+	"'When you present the vision to these stakeholders it is important to have the mission clarified. [..] You must set clear objectives and keep progress steering toward the rigth direction. There are many side paths. experiments and "'shiny"' things to distract you on the journey towards continuous delivery. It is easy to become distracted or waylaid by these."'\cite{RallySofware2013}
+\end{quote} 
+Zudem darf man sich nicht vom Ziel ablenken lassen, sondern sollte zunächst einmal auf dieses zusteuern. Hat man das Ziel, welches durch Continuous Delivery erreicht werden soll, erreicht, kann man versuchen den Prozess stetig zu verbessern. Jedoch ist auch hier Vorsicht geboten.
+\\\\
+Ein bekanntes Sprichwort sagt: 
+\begin{quotation}
+	"Nicht alles was Glänzt ist Gold!"
+\end{quotation}
+und so ist es auch hier. Continuous Delivery kann beliebig verändert und erweitert werden, jedoch sollten nie Änderungen durchgeführt werden, die keinen Nutzen haben bzw. den eigentlichen Prozess behindern. Dies würde den Prozess unübersichtlich und ggf. langsamer machen.
+
+\section{Continuous Integration}
+\label{sec:ContinuousIntegration}
+\begin{quote}
+	"'Continuous Integration is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible. Many teams find that this approach leads to significantly reduced integration problems and allows a team to develop cohesive software more rapidly. This article is a quick overview of Continuous Integration summarizing the technique and its current usage. [..] At all times you know where you are, what works, what doesn't, the outstanding bugs you have in your system "'\cite{Fowler:CI}. 
+\end{quote}
 Das ist die Aufgabe von Continuous Integration. Um dies zu erreichen ist es notwendig jede Teilaufgabe innerhalb der Entwicklung in den Prozess mit einzubinden. Das Ziel ist es so früh wie möglich Bugs zu erkennen und diese zu beheben. Dafür muss jeder Prozess automatisiert werden. Vor allem muss es möglich sein, Tests automatisiert durchführen zu können. Eine einfache Continuous Integration zeigt folgendes Bild:
 
 \begin{figure}[htb]
-    \centering 
-    \includegraphics[width=\linewidth]{content/images/continuous_integration}\
-    \quelle\url{https://insights.sei.cmu.edu/devops/2015/01/continuous-integration-in-devops-1.html}
-    \caption[Continuous Integration]{Continuous Integration\\}
-    \label{fig:ContinuousIntegration}  
+	\centering 
+	\includegraphics[width=\linewidth]{content/images/continuous_integration}\
+	\quelle\url{https://insights.sei.cmu.edu/devops/2015/01/continuous-integration-in-devops-1.html}
+	\caption[Continuous Integration]{Continuous Integration\\}
+	\label{fig:ContinuousIntegration}  
 \end{figure}\noindent 
-Wie zu erkennen ist, sorgt ein zentraler "`Continuous Integration Server"' für das Bauen und Testen der Software und informiert die zuständigen Entwickler über den Status. In der Regel wird dies bei jeder Code Änderung durchgeführt, sodass direkt erkannt wird, ob eine Änderung des Codes zu einem Erfolg oder einem Fehlschlag führt.
-
-Continuous Delivery ist eine natürliche Erweiterung von Continuous Integration. Trotzdem unterscheiden sich die beiden Begriffe nicht wirklich von einander. Während bei der Continuous Integration wert darauf gelegt wird, Software möglichst Fehlerfrei zu erzeugen, wird bei Continuous Delivery  darauf wert gelegt, Software möglichst regelmäßig zu deployen. Continuous Delivery beinhaltet Continuous Integration und erweitert diese um das ausliefern. In der nachfolgenden Sektion, wird noch einmal auf den unterschied zwischen Continuous Integration und Delivery eingegangen
+Wie zu erkennen ist, sorgt ein zentraler "'Continuous Integration Server"' für das Bauen und Testen der Software und informiert die zuständigen Entwickler über den Status. In der Regel wird dies bei jeder Code Änderung durchgeführt, sodass direkt erkannt wird, ob eine Änderung des Codes zu einem Erfolg oder einem Fehlschlag führt.
+\\
+\begin{quote}
+	"'The concept of Continuous Integration (CI) was a first step that significantly sped up the lifecycle of a product, pushing developers to commit/integrate more frequently to a shared repository, triggering automated unit-tests after each commit; as direct consequence, this helped to detect problems richt after a bad commit and reduced the necessity of back-tracking to individuate the issue in changes happend far away in time."'\cite[in Introduction]{IEEE:CDMitJenkins}
+\end{quote}
+Continuous Delivery ist eine natürliche Erweiterung von Continuous Integration. Trotzdem unterscheiden sich die beiden Begriffe nicht wirklich von einander. Während bei der Continuous Integration wert darauf gelegt wird, Software möglichst Fehlerfrei zu erzeugen, wird bei Continuous Delivery  darauf wert gelegt, Software möglichst regelmäßig zu deployen. Continuous Delivery beinhaltet Continuous Integration und erweitert diese um das ausliefern.
 
 \section{Continuous Delivery Pipeline}
-\label{subsec:Continuous Delivery Pipeline}
-Die Continuous Delivery Pipeline beschreibt die Teilprozesse, welche durchlaufen werden müssen, um Continuous Delivery durchführen zu können. Dabei wird die Pipeline automatisch durchlaufen. Die Folgende Abbildung zeigt eine mögliche Pipeline. Das Deployen in die Produktionsumgebungen "`PRODBLUE"' und "`PRODGREEN"' muss jedoch manuel, durch klicken auf Trigger, erfolgen.
+\label{sec:Continuous Delivery Pipeline}
+Es wurden bisher die Vorteile von Continuous Delivery erläutert, wie funktioniert jedoch Continuous Delivery im einzelnen? Die einzelnen Schritte werden durch die \textit{Continuous Delivery Pipeline} beschrieben. Dabei wird der Durchlauf der Pipeline automatisch durchgeführt. Die Continuous Delivery Pipeline integriert zum einen
+Die Folgende Abbildung zeigt eine mögliche Pipeline. Das Deployen in die Produktionsumgebungen "'PRODBLUE"' und "'PRODGREEN"' muss in diesem Beispiel jedoch manuel, durch klicken auf Trigger, erfolgen.
 
 \begin{figure}[htb]
     \centering 
@@ -36,14 +101,18 @@ Die Continuous Delivery Pipeline beschreibt die Teilprozesse, welche durchlaufen
 \end{figure}\noindent 
 Wie man in der Abbildung sehen kann beinhaltet die Pipeline alle nötigen schritte, welche zuvor in \nameref{subsec:ContinuousIntegration} besprochen wurden. Hier sei noch einmal erwähnt, dass Continuous Integration alle Prozesse, bis auf den letzten (das Deployment), beinhaltet. Continuous Integration und Delivery unterscheiden sich, wie schon zu vor erwähnt, nur beim letzten Schritt, dem Deployen. Dieser wird jedoch bei Continuous Delivery Manuel ausgeführt. Unter ausgeführt ist hierbei zu verstehen, dass ein Prozess, hier durch einen klick, gestartet wird, welcher die Software, bzw. das Artefakt, automatisch in die Produktion bringt.
 
+\section{Werkzeuge von Continuous Delivery}
+\label{sec:WerkzeugeCD}
+Es wurde bisher erläutert was Continuous Delivery ist, welches Vorteile es hat und welche Voraussetzungen gegeben sein müssen, damit Continuous Delivery eingeführt werden kann. Es wurde ebenfalls mit Abschnitt \ref{sec:ContinuousIntegration} \nameref{sec:ContinuousIntegration} und Abbildung \ref{fig:ContinuousIntegration} \nameref{fig:ContinuousIntegration} der Begriff \textit{Continuous Integration Server} eingeführt. Es wurde jedoch noch nicht geklärt was dieser Server genau ist und welche konkreten Aufgaben dieser besitzt. Dies soll in diesem Abschnitt geklärt werden. Zudem sollen weitere Werkzeuge vorgestellt werden, der für den \textit{Continuous Delivery Prozess} nützlich sein können.
+
 \section{Einführung von Continuous Delivery}
-\label{subsec:EinfuehrungCD}
-In Kaptiel \ref{sec:problemstellung} \nameref{sec:problemstellung} wurde bereits ein Fall beschrieben, in der kein Continuous Delivery eingesetzt wird. Darauf aufbauend wird nun Schritt für Schritt die vorhandene Softwareentwicklung in Continuous Delivery überführt.
+\label{sec:EinfuehrungCD}
+In Kapitel \ref{sec:problemstellung} \nameref{sec:problemstellung} wurde bereits ein Fall beschrieben, in der kein Continuous Delivery eingesetzt wird. Darauf aufbauend wird nun Schritt für Schritt die vorhandene Softwareentwicklung in Continuous Delivery überführt.
 \\\\
 Damit das Dependencie Management und automatisieren von Tests bzw. das ausführen zusätzlicher Aktionen erleichtert wird, wird zunächst ein Build-Management-Tool eingeführt. Dadurch wird sichergestellt, dass Software idempotent gebaut werden kann. Der Build-Prozess ist dadurch Standardisiert und kann beliebig oft wiederholt werden.
 \\\\
 Wie bereits erläutert wurde, ist in diesem Beispiel die Qualitätssicherung zwar ein Teil der Softwareentwicklung, jegliche Tests werden jedoch nur manuell ausgeführt, was zu regelmäßigen, unentdeckten Fehlern führt. Daher muss zunächst einmal dafür gesorgt werden, dass Unit-Tests geschrieben werden, welche vor dem Bauen der Software, die Code Qualität und Richtigkeit überprüft.  Test-Driven-Development (TDD)\footnote{TDD wird hier nur erwähnt und nicht weiter erläutert. Es sei auf Fachliteratur zu diesem Thema verwiesen.} ist einer der Möglichkeiten, sicherzustellen, dass Tests regelmäßig geschrieben werden. Zusammen mit dem eingeführten Build-Management-Tool können nun, vor dem Bauen der Software, die Unit Tests durchlaufen und dadurch der Code der Software überprüft werden.
 \\\\
-Nun ist zu mindestens Sichergestellt, dass diese Art der Tests automatisiert ablaufen und nicht mehr manuell durchgeführt werden müssen. Jedoch müssen noch Akzeptanz-, Performanz- und Integrations-Tests automatisiert werden. Diese Tests können jedoch nicht immer durch das Build-Management-Tool abgedeckt werden. Daher Wird nun ein "`Build and Management"' Werkzeug wie Jenkins\footnote{siehe: https://jenkins.io/} eingesetzt wird, welches sowohl die Software baut, unter anderem mit dem eingeführten Build-Management-Tool, als auch die anderen Tests abbilden kann. Wie die Software genau funktioniert, soll hier jedoch nicht weiter erläutert werden. Es sei nur erwähnt, dass es durch Konfiguration und Plugins möglich ist, die oben genannten Tests innerhalb von Jenkins abzubilden. Es wurde eine \textit{Continuous Delivery Pipeline} erschaffen. Die Abbildung \ref{fig:ContinuousDeliveryPipeline} \nameref{fig:ContinuousDeliveryPipeline} zeigt ein ausschnitt aus dem "`Build and Management"' Werkzeug Jenkins. Außerdem ist es durch Jenkins möglich jeden Schritt zu Überwachen und zu Protokollieren, sowie nach jedem Schritt zu stoppen, sollte ein Fehler auftreten. Dadurch ist es möglich frühzeitig Fehler zu erkennen und diese zu beheben.
+Nun ist zu mindestens Sichergestellt, dass diese Art der Tests automatisiert ablaufen und nicht mehr manuell durchgeführt werden müssen. Jedoch müssen noch Akzeptanz-, Performanz- und Integrations-Tests automatisiert werden. Diese Tests können jedoch nicht immer durch das Build-Management-Tool abgedeckt werden. Daher Wird nun ein "'Build and Management"' Werkzeug wie Jenkins\footnote{siehe: https://jenkins.io/} eingesetzt wird, welches sowohl die Software baut, unter anderem mit dem eingeführten Build-Management-Tool, als auch die anderen Tests abbilden kann. Wie die Software genau funktioniert, soll hier jedoch nicht weiter erläutert werden. Es sei nur erwähnt, dass es durch Konfiguration und Plugins möglich ist, die oben genannten Tests innerhalb von Jenkins abzubilden. Es wurde eine \textit{Continuous Delivery Pipeline} erschaffen. Die Abbildung \ref{fig:ContinuousDeliveryPipeline} \nameref{fig:ContinuousDeliveryPipeline} zeigt ein ausschnitt aus dem "'Build and Management"' Werkzeug Jenkins. Außerdem ist es durch Jenkins möglich jeden Schritt zu Überwachen und zu Protokollieren, sowie nach jedem Schritt zu stoppen, sollte ein Fehler auftreten. Dadurch ist es möglich frühzeitig Fehler zu erkennen und diese zu beheben.
 \\\\
 Es wurde nun dafür gesorgt, dass sowohl das Bauen, als auch jegliche Tests automatisiert wurde. Dadurch kann die Software Standardisiert gebaut und getestet werden. Durch die Automatisierung ist es zusätzlich möglich die \gls{glos:TTM} Zeitspanne deutlich zu kürzen, da automatisch durchgeführten Tests, meistens kürzer und genauer sind, als wenn man diese manuell ausgeführt hätte. Außerdem werden unter anderem dadurch Fehler frühzeitig erkannt und können behoben werden, bevor die Software in Produktion geht. Durch die durchgeführten Änderungen am Entwicklungsprozess, ist es nun möglich bei jeder Änderung des Quellcodes, die Software standardisiert zu bauen und zu Testen. Dadurch erhält der, bzw. die Entwickler regelmäßig und in kurzen Abständen eine Rückmeldung, ob die durchgeführten Änderungen am Code zu Problemen führen oder die Software weiterhin funktioniert. Dies führt dazu, dass regelmäßig releasefähige Software erzeugt wird, welche in Produktion gebracht werden kann.

@@ -198,17 +198,20 @@ urlcolor=cyan                          % Farbe von URLs
 \providecommand*{\pseudocodeautorefname}{Pseudocode}
 
 % ******************************* PAGE SETUP **********************************
+\setlength{\parindent}{0pt}
 \textheight23cm
 \textwidth14cm
-\voffset0cm
-\topskip0cm
-\topmargin-1.2cm
-\headheight1.0cm
-\headsep1.5cm
-\oddsidemargin1.0cm
-\evensidemargin1.0cm
 \renewcommand{\baselinestretch}{1.4} 
 \widowpenalty=300
 \clubpenalty=300
+
+\geometry{
+	left=2cm,
+	right=2cm,
+	top=2cm,
+	bottom=2cm,
+	bindingoffset=5mm
+}
+
 \makeglossaries
 \makeindex

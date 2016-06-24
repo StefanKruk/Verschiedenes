@@ -4,24 +4,47 @@ In diesem Kapitel werden zunächst die Grundlagen erläutert, welche für das Ve
 
 \section{Grundlagen}
 \label{sec:grundlagen}
-Grundsätzlich ist das in dieser Arbeit behandelnde Thema für jede Person mit einer allgemeinen Informatikausbildung ohne weiteres zu verstehen. Es kann bei dieser Personengruppe, die Kenntnisse über grundsätzlichen Prozess einer Softwareentwicklung vorausgesetzt werden. Trotzdem soll im weiteren Verlauf einige Begriffe genauer erklärt werden.
+Grundsätzlich ist das in dieser Arbeit behandelnde Thema für jede Person mit einer allgemeinen Informatikausbildung ohne weiteres zu verstehen. Es kann bei dieser Personengruppe, die Kenntnisse über grundsätzlichen Prozess einer Softwareentwicklung vorausgesetzt werden. Zudem kann vorausgesetzt werden, dass jede Person dieser Gruppe, der englischen Sprache mächtig ist. Trotzdem soll im weiteren Verlauf einige Begriffe genauer erklärt werden.
+\\\\
+\textbf{Time-to-Market}\\
+Unter dem Begriff Time-to-Market wird die Zeit von der Produktentwicklung bis zur Auslieferung auf dem Markt verstanden.\footnote{Vergleich mit \cite{ttm}} In dieser Zeit müssen Kosten für die Erstellung/Entwicklung aufgebracht werden, es wird in dieser Zeit jedoch keine Umsätze erzeugt. Daher strebt jedes Unternehmen eine möglichst geringe Time-to-Market Zeit an. Insbesondere wenn es um Wettbewerb geht, muss diese Zeit kurz gehalten werden.
 \\\\
 \textbf{Delivery}\\
 Delivery (zu deutsch Ausliefern) beschreibt das Ausliefern (das Verteilen) von Artefakten. Dabei kann das Artefakt eine ganze Applikation oder nur ein Service in einer Service Orientierten Architektur sein.
 \\\\
 \textbf{Deployment}\\
 Unter Deployment (zu deutsch Softwareverteilung) versteht man das installieren, eines Artefaktes. Auch hier kann ein Artefakt eine ganze Applikation oder nur ein Service sein.
+\\\\
+\textbf{Software-as-a-Service (SaaS)}
+"`Das Modell der Software-as-a-Service (SaaS) ist Teil des großen Konzeptes „Cloud-Computing“. SaaS ist dem Konzept des Application-Service-Provider (ASP) sehr ähnlich ist und funktioniert, indem der Kunde eine bereITgestellten Software-Anwendungen online nutzen kann, wie eine Art Dienstleistung. Für die Nutzung der Anwendung zahlt er Gebühren an den Provider, der die Software für ihn bereitstellt. Der Kunde kann hierbei einen monatlichen Betrag wählen oder die Software on Demand, also je nach Bedarf, nutzen und zahlen."'\cite{SaaS}
 
 \section{Problemstellung}
 \label{sec:problemstellung}
 Durch fortschreitende Technologien, werden Arbeitsabläufe immer automatisierter. Dadurch wird die Zeitspanne für \gls{glos:TTM} immer relevanter und kürzer, wodurch der Wettbewerbsdruck wächst. Daher ist es wichtig eine kurze TTM zu haben.
-
+\\\\
+\subsubsection*{fiktives Beispiel}
 Eberhard Wolff beschreibt in \cite[S. 2 ff.]{EWolff:CD} einen Fall eines fiktiven E-Commerce Unternehmens.
 Das Unternehmen hatte nur eine große Software, den E-Commerce Shop. Durch neue Angebote und das dauerhaft ändernde Interesse der Kunden mussten neue Funktionen regelmäßig und in möglichst kurzen abständen dem Kunden zugänglich gemacht werden. Dies wurde jedoch durch die Tatsache behindert, dass die Software über die Jahre gewachsen ist und das erneute Ausliefern der Software für eine Funktion sich nicht lohnte. Daher wurde nur einmal im Monat neu Deployed. Der Prozess wurde außerdem dadurch behindert, dass die Qualitätssicherung zwar ein Teil der Softwareentwicklung war, jedoch Tests nur manuell ausgeführt worden sind, wodurch regelmäßig Fehler übersehen wurden.
-
-die Software wurde schließlich mit Fehlern ausgeliefert und es stellte sich erst am nächsten Tag, oder schlimmer nach einer Woche, heraus, dass sie nicht einwandfrei funktionierte. Entwickler mussten also ihre Arbeit unterbrechen und den Fehler finden und beheben. Da jedoch ein wenig Zeit vergangen ist, seit dem die Entwickler an diesem Teil des Codes gearbeitet haben, müssen sie sich erst wieder einarbeitet, bis sie den Fehler finden und beheben können.
-
+\\\\
+die Software wurde schließlich mit Fehlern ausgeliefert und es stellte sich erst am nächsten Tag, oder schlimmer nach einer Woche, heraus, dass sie nicht einwandfrei funktionierte. Entwickler mussten ihre Arbeit unterbrechen und den Fehler finden und beheben. Da jedoch ein wenig Zeit vergangen ist, seit dem die Entwickler an diesem Teil des Codes gearbeitet haben, müssen sie sich erst wieder einarbeitet, bis sie den Fehler finden und beheben können.
+\\\\
 Das Unternehmen hatte eine große TTM-Zeit und dadurch hohe kosten. Zusätzlich entstehen fehlerhafte Releases wodurch zusätzliche Kosten bzw. Einbußen entstehen.
+\\\\
+\subsubsection*{Reales Beispiel}
+Als Reales Beispiel dient das Unternehmen \textit{Rally Software}.
+\begin{quote}
+"'When Rally Software was founded in April 2002 the engineering strategy was to ship code early and often. The company founders had ben successfully practicing Agile and Scrum, with its well-known patterns of story planning, sprints, daily stand-ups and retrospectives. They adopted an eight week release cadence that propelled the online software as a service (SaaS) product forward for more than seven years."'\cite{RallySofware2013}
+\end{quote}
+Weiter steht in \cite{RallySofware2013}:
+Rally Software deployed alle acht Wochen Code in Ihre SaaS Umgebung. Sieben der acht Wochen wird für die Ausführung des planning-sprint cycles genutzt und die verbleibende Woche für das 'härten' des Codes. Hiermit ist die Testphase gemeint. Dabei klicken sich alle Angestellten durch die Anwendung auf der suche nach Fehlern. Wurde ein Fehler gefunden, wird dieser direkt an die Entwicklungsabteilung gegeben. Die wiederum versuchten den Fehler so schnell wie möglich zu beheben. Ist der Release Zeitpunkt gekommen, werden die Datenbanken manuell migriert und die komprimierten WAR Dateien durch das Netzwerk kopiert.
+\begin{quote}
+	"'If anything went wrong we could lose a [day] to fix the failure."'\cite{RallySofware2013}
+\end{quote}
+Am nächsten Tag standen die Entwickler früh im Büro, noch bevor der erste user-traffic-spike, war um die Software zu überwachen.
+\begin{quote}
+	"'After a successful release Rally would celebrate. The event was recorded for history with a prized release sticker and the eight week cycle began again."'\cite{RallySofware2013}
+\end{quote}
+Dieses Beispiel verdeutlicht sehr stark, was das ausführen von manuellen Tests bewirken kann und wie glücklich die Mitarbeiter sind, wenn ein Realese ohne Fehler durchgeführt wurde.
 
 \section{Ziel der Arbeit}
 \label{sec:zielDerArbeit}
@@ -29,10 +52,25 @@ In dieser Arbeit soll Continuous Delivery genauer erläutert und dabei folgende 
 
 \begin{enumerate}
 	\item Was ist Continuous Delivery?
+	\item Warum sollte man Continuous Delivery einsetzten?
+	\item Welche Voraussetzungen müssen gegeben sein, um Continuous Delivery einzusetzen?
+	\item Was ist Continuous Integration und wie gehört es zu Continuous Delivery?
     \item Was ist eine Continuous Delivery Pipeline?
+    \item Welche Werkzeuge werden benötigt für die Verwendung von Continuous Delivery?
 	\item Wie kann man Continuous Delivery in ein bestehenden Entwicklungsprozess einbinden?
 \end{enumerate}
+% == 1. Leitfrage ==
+Die erste Leitfrage soll den Begriff Continuous Delivery erläutern. In diesem Zusammenhang wird zunächst einmal der Begriff \textit{Continuous Integration} eingeführt und mit der vierten Leitfrage genauer erläutert. Zudem wird erläutert welche Ziele mit Continuous Delivery verfolgt werden sollen.\\\\
+% == 2. Leitfrage ==
+Darauf aufbauend wird geklärt warum Continuous Delivery eingesetzt werden soll. Konkret werden die Vorteile von Continuous Delivery anhand von Realen Situationen dargelegt und erläutert. Zudem wird erläutert, welche Vorteile sowohl Entwickler, als auch das Unternehmen selbst, von dem Schritt, den Entwicklungsprozess auf Continuous Delivery umzustellen, haben.\\\\
+% == 3. Leitfrage ==
+Anschließend soll die dritte Leitfrage geklärt werden. Es wird erläutert, welche Voraussetzungen gegeben sein müssen, bzw. welche Schritte notwendig sind, damit Continuous Delivery eingeführt werden kann.\\\\
+% == 4. Leitfrage ==
+Nachdem erläutert wurde was Continuous Delivery ist, warum ein Unternehmen die Softwareentwicklung auf diesen Prozess umstellen sollte und welche Voraussetzungen dafür gegeben sein müssen, wird schließlich der Begriff \textit{Continuous Integration} weiter erläutert. Zudem wird genauer dargelegt, wie \textit{Continuous Integration} mit Continuous Delivery zusammenhängt. Es wird außerdem erläutert, in wie weit Tests verändert werden müssen, damit sie in den Continuous Integration Prozess mit aufgenommen werden können.\\\\
+% == 5. Leitfrage ==
+Mit der fünften Leitfrage wird der Begriff \textit{Continuous Delivery Pipeline} eingeführt und erläutert. Dies wird schließlich an ein Beispiel weiter verdeutlicht.\\\\
+% == 6. Leitfrage ==
+Da nun ein Verständnis von \textit{Continuous Delivery} vorhanden ist, werden Werkzeuge eingeführt, welche zum Beispiel die Frage genauer erklären: "'Was ist ein \textit{Continuous Integration Server}"'. Zudem wird noch einmal darauf eingegangen wie welche Werkzeuge eingesetzt werden können, um Tests in den Continuous Integration Prozess aufnehmen zu können.\\\\
+% == 7. Leitfrage ==
+Abschließend soll die Leitfrage geklärt werden, wie ein bestehender Entwicklungsprozess zu Continuous Delivery überführt werden kann.
 
-Die erste Leitfrage soll den Begriff Continuous Delivery und seine Herkunft erläutert. Dabei wird kurz auf die Geschichte der Softwareentwicklungsprozesse eingegangen und erläutert wie sich der Prozess zum heutigen unterscheidet. Außerdem wird in diesem Zusammenhang noch einmal erläutert, warum sich die Prozesse verändert haben bzw. verändert werden mussten.
-
-Darauf aufbauend, soll eine Continuous Delivery Pipeline erläutert und aufgebaut werden, anhand dieser wird mit der folgenden und abschließenden Leitfrage, ein bestehender Entwicklungsprozess in Continuous Delivery eingebunden.
