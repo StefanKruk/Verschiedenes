@@ -51,7 +51,7 @@ Bisher wurde beschrieben welche Vorteile Continuous Delivery bietet, jedoch nich
 \begin{quote}
 	"'The improved test coverage, rapid feedback cylces, scrutiny of monitoring systems, and fast rollback mechanisms result in a far safer environment for shipping code. But it is not free; it is not pailess. It is important to have the right level of sponsorship before you begin."'\cite{RallySofware2013}
 \end{quote}
-Konkret heißt das, bevor Continuous Delivery eingeführt werden kann, muss zunächst einmal geklärt werden, warum man diesen Schritt durchführen möchte und welche Ziele damit verfolgt werden sollen. Argumente wie: \textit{Es ermöglicht schneller releases.} oder \textit{Continuous Delivery bringt uns mehr Geld.} sind schlichtweg ein falscher Ansatz.
+Konkret heißt das, bevor Continuous Delivery eingeführt werden kann, muss zunächst einmal geklärt werden, warum man diesen Schritt durchführen möchte und welche Ziele damit verfolgt werden sollen. Argumente wie: \textit{Es ermöglicht schnellere releases.} oder \textit{Continuous Delivery bringt uns mehr Geld.} sind jedoch ein falscher Ansatz und sollten vermieden werden.
 \\\\
 Vorallem müssen die beteiligten Personen überzeugt werden können. Dafür ist es umso wichtiger zu wissen, wohin man möchte und mit welchen mitteln.
 
@@ -60,11 +60,7 @@ Vorallem müssen die beteiligten Personen überzeugt werden können. Dafür ist 
 \end{quote} 
 Zudem darf man sich nicht vom Ziel ablenken lassen, sondern sollte zunächst einmal auf dieses zusteuern. Hat man das Ziel, welches durch Continuous Delivery erreicht werden soll, erreicht, kann man versuchen den Prozess stetig zu verbessern. Jedoch ist auch hier Vorsicht geboten.
 \\\\
-Ein bekanntes Sprichwort sagt: 
-\begin{quotation}
-	"Nicht alles was Glänzt ist Gold!"
-\end{quotation}
-und so ist es auch hier. Continuous Delivery kann beliebig verändert und erweitert werden, jedoch sollten nie Änderungen durchgeführt werden, die keinen Nutzen haben bzw. den eigentlichen Prozess behindern. Dies würde den Prozess unübersichtlich und ggf. langsamer machen.
+Continuous Delivery kann beliebig verändert und erweitert werden, jedoch sollten nie Änderungen durchgeführt werden, die keinen Nutzen haben bzw. den eigentlichen Prozess behindern. Dies würde den Prozess unübersichtlich und ggf. langsamer machen.
 
 \section{Continuous Integration}
 \label{sec:ContinuousIntegration}
@@ -75,7 +71,7 @@ Das ist die Aufgabe von Continuous Integration. Um dies zu erreichen ist es notw
 \begin{quote}
 	"'CI literally started to change how companies looked at Build Managment, Release Management, Deployment Automation, and Test Orchestration [..]."'\cite{IEEE:CDMitJenkins}
 \end{quote}
-Das Ziel ist es so früh wie möglich Bugs zu erkennen und diese zu beheben. Dafür muss jeder Prozess automatisiert werden. Vor allem muss es möglich sein, Tests automatisiert durchführen zu können. Eine einfache Continuous Integration zeigt folgendes Bild:
+Das Ziel ist es so früh wie möglich Bugs zu erkennen und diese zu beheben. Dafür muss jeder Prozess automatisiert werden. Vor allem muss es möglich sein, Tests automatisiert durchführen zu können. Eine einfache Continuous Integration zeigt Abbildung \ref{fig:ContinuousIntegration} \nameref{fig:ContinuousIntegration}:
 
 \begin{figure}[htb]
 	\centering 
@@ -83,9 +79,10 @@ Das Ziel ist es so früh wie möglich Bugs zu erkennen und diese zu beheben. Daf
 	\quelle\url{https://insights.sei.cmu.edu/devops/2015/01/continuous-integration-in-devops-1.html}
 	\caption[Continuous Integration]{Continuous Integration\\}
 	\label{fig:ContinuousIntegration}  
-\end{figure}\noindent 
-Wie zu erkennen ist, sorgt ein zentraler "'Continuous Integration Server"' für das Bauen und Testen der Software und informiert die zuständigen Entwickler über den Status. In der Regel wird dies bei jeder Code Änderung durchgeführt, sodass direkt erkannt wird, ob eine Änderung des Codes zu einem Erfolg oder einem Fehlschlag führt.
-\\
+\end{figure}
+\newpage
+Wie in Abbildung \ref{fig:ContinuousIntegration} \nameref{fig:ContinuousIntegration} zu erkennen ist, sorgt ein zentraler "'Continuous Integration Server"' für das Bauen und Testen der Software und informiert die zuständigen Entwickler über den Status. In der Regel wird dies bei jeder Code Änderung durchgeführt, sodass direkt erkannt wird, ob eine Änderung des Codes zu einem Erfolg oder einem Fehlschlag führt.
+
 \begin{quote}
 	"'The concept of Continuous Integration (CI) was a first step that significantly sped up the lifecycle of a product, pushing developers to commit/integrate more frequently to a shared repository, triggering automated unit-tests after each commit; as direct consequence, this helped to detect problems richt after a bad commit and reduced the necessity of back-tracking to individuate the issue in changes happend far away in time."'\cite[in Introduction]{IEEE:CDMitJenkins}
 \end{quote}
@@ -103,13 +100,13 @@ Die Folgende Abbildung zeigt eine mögliche Pipeline. Das Deployen in die Produk
     \caption[Continuous Delivery Pipeline]{Continuous Delivery Pipeline\\}
     \label{fig:ContinuousDeliveryPipeline}  
 \end{figure}\noindent 
-Wie man in der Abbildung sehen kann beinhaltet die Pipeline alle nötigen schritte, welche zuvor in \nameref{subsec:ContinuousIntegration} besprochen wurden. Hier sei noch einmal erwähnt, dass Continuous Integration alle Prozesse, bis auf den letzten (das Deployment), beinhaltet. Continuous Integration und Delivery unterscheiden sich, wie schon zu vor erwähnt, nur beim letzten Schritt, dem Deployen. Dieser wird jedoch bei Continuous Delivery Manuel ausgeführt. Unter ausgeführt ist hierbei zu verstehen, dass ein Prozess, hier durch einen klick, gestartet wird, welcher die Software, bzw. das Artefakt, automatisch in die Produktion bringt.
+Wie man in der Abbildung sehen kann beinhaltet die Pipeline alle nötigen schritte, welche zuvor in \nameref{sec:ContinuousIntegration} besprochen wurden. Hier sei noch einmal erwähnt, dass Continuous Integration alle Prozesse, bis auf den letzten (das Deployment), beinhaltet. Continuous Integration und Delivery unterscheiden sich, wie schon zu vor erwähnt, nur beim letzten Schritt, dem Deployen. Dieser wird jedoch bei Continuous Delivery Manuel ausgeführt. Unter ausgeführt ist hierbei zu verstehen, dass ein Prozess, hier durch einen klick, gestartet wird, welcher die Software, bzw. das Artefakt, automatisch in die Produktion bringt.
 
 \section{Werkzeuge für Continuous Delivery}
 \label{sec:WerkzeugeCD}
 Es wurde bisher erläutert was Continuous Delivery ist, welches Vorteile es hat und welche Voraussetzungen gegeben sein müssen, damit Continuous Delivery eingeführt werden kann. Es wurde ebenfalls mit Abschnitt \ref{sec:ContinuousIntegration} \nameref{sec:ContinuousIntegration} und Abbildung \ref{fig:ContinuousIntegration} \nameref{fig:ContinuousIntegration} der Begriff \textit{Continuous Integration Server} eingeführt. Es wurde jedoch noch nicht geklärt was dieser Server genau ist und welche konkreten Aufgaben dieser besitzt. Dies soll in diesem Abschnitt geklärt werden. Zudem sollen weitere Werkzeuge vorgestellt werden, der für den \textit{Continuous Delivery Prozess} nützlich sein können. Es soll jedoch nicht die konkrete Funktionsweise von Werkzeugen erläutert werden. Einige Werkzeuge werden zum besseren Verständnis genauer erklärt als andere.
-In Abschnitt \ref{sec:ContinuousIntegration} \nameref{sec:ContinuousIntegration} wurde der Begriff "'Continuous Integration Server"' erwähnt, jedoch nicht genauer erläutert. Was es mit diesem Begriff genau auf sich hat, wird nun geklärt. 
-\\\\
+Es sei hier erwähnt, dass nicht alle Werkzeuge eingesetzt werden müssen, damit \textit{Continuous Delivery} durchgeführt werden kann, jedoch können die Werkzeuge den Prozess vereinfachen.
+
 \subsubsection*{Continous Integration Server: Jenkins}
 Der Begriff \textit{Continuous Integration} wurde bereits genau erläutert. Ein \textit{Continuous Delivery Server} ist nichts anderes, als eine Applikation die auf einem Server läuft, welche die nötigen Teilprozesse von \textit{Continuous Integration} ausführt. Wird noch einmal die Abbildung \ref{fig:ContinuousIntegration} \nameref{fig:ContinuousIntegration} betrachtet, ist der Server, auf dem die Applikation läuft, direkt neben der Box, in der "Continuous Integration Server" steht abgebildet. Ein Beispiel "Continuous Integration Server" könnte \textit{Jenkins} sein. \textit{Jenkins} ist ein sogenanntes "'Build and Management"' Werkzeug.
 
@@ -138,19 +135,68 @@ Damit Software automatisch, im Rahmen von \textit{Continuous Delivery}, ausgelie
 \end{quote}
 Damit Software ohne Probleme automatisch deployed werden kann, müssen ggf. Änderungen an der Infrastruktur durchgeführt werden bzw. eine neue Infrastruktur aufgesetzt werden. Letzteres ist zum Beispiel bei der Skalierung notwendig. Damit jede Instanz gleich, bzw. jede Änderung der vorhandenen Instanzen nachvollzogen werden kann, müssen alle Schritte dokumentiert werden. Die technische Dokumentation geschieht mit Hilfe von \textit{Chef/Puppet}. Nach dieser Dokumentation kann das jeweilige Werkzeug gestartet werden und eine standardisierte Infrastruktur wird aufgebaut.
 
-\subsection{Versionierung von Artefakte}
-Zuletzt muss noch eine Möglichkeit gefunden werden, um die einzelnen Versionen von Artefakten zu Versionieren und sicher zu lagern. Hier sei auf die Werkzeuge \textit{Nexus} bzw. \textit{Artifactory} verwiesen.
+\subsubsection*{Binary Repository Manager}
+Zuletzt muss noch eine Möglichkeit gefunden werden, um die einzelnen Versionen von Artefakten zu Versionieren und sicher zu lagern. Hier können sogenannte \textit{Binary Repository Manager} eingestzt werden.
+
+\begin{quote}
+    "'It’s a single gateway through which you access external artifacts, and store your own build artifacts. By centralizing the management of all binary artifacts, it overcomes the complexity arising from the diversity of binary types, their position in the workflow and the dependencies between them."'\cite{BRM}
+\end{quote}
+
+In Zusammenarbeit mit \textit{Build-Management-Tools}, kann eine sichere und einfache Möglichkeit des \textit{Dependency Managements} aufgebaut werden.
 \\\\
-Beide werkzeuge
+Nachdem die \textit{Continuous Delivery Pipeline} durchlaufen wurde und alle Tests erfolgreich bestanden wurden, wird das Artefakt im \textit{Binary Repository Manager} gespeichert.
 
 \section{Einführung von Continuous Delivery}
 \label{sec:EinfuehrungCD}
-In Kapitel \ref{sec:problemstellung} \nameref{sec:problemstellung} wurde bereits ein Fall beschrieben, in der kein Continuous Delivery eingesetzt wird. Darauf aufbauend wird nun Schritt für Schritt die vorhandene Softwareentwicklung in Continuous Delivery überführt.
+In Kapitel \ref{sec:problemstellung} \nameref{sec:problemstellung} wurden bereits zwei Fälle beschrieben, in denen kein Continuous Delivery eingesetzt wurde. Darauf aufbauend wird nun Schritt für Schritt der bestehende Entwicklungsprozess, des fiktive Beispiels von Eberhard Wolff, zu Continuous Delivery überführt. Für die Erstellung der \textit{Continuous Delivery Pipeline} werden die zuvor erläuterten Werkzeuge eingesetzt. Des besseren Verständnis wegen, wird davon ausgegangen, dass in der Programmiersprache Java programmiert wird. Außerdem wird davon ausgegangen, dass eine Versionsverwaltung wie \textit{Git} eingesetzt wird, um Code-Änderungen zu verwalten und nach zu vollziehen.
 \\\\
-Damit das Dependencie Management und automatisieren von Tests bzw. das ausführen zusätzlicher Aktionen erleichtert wird, wird zunächst ein Build-Management-Tool eingeführt. Dadurch wird sichergestellt, dass Software idempotent gebaut werden kann. Der Build-Prozess ist dadurch Standardisiert und kann beliebig oft wiederholt werden.
+Bevor eine \textit{Continuous Delivery Pipeline} aufgebaut werden kann, muss zunächst einmal geklärt werden, welche Ziele erreicht werden sollen. Eines der Hauptziele ist es den Deployment-Prozess zu verkürzen. Anstatt nur einmal im Monat zu deployen, soll langfristig gesehen, so oft wie möglich deployed werden. Im Zuge dessen, ist das nächste Hauptziel, die Qualitätssicherung zu verbessern, in dem Tests nicht mehr manuell ausgeführt werden, sondern innerhalb der \textit{Continuous Delivery Pipeline} automatisch ausgeführt werden.
+
+Als ersten Schritt wird ein \textit{Continuous Integration Server} aufgesetzt. Dafür wird das bereits erwähnte Werkzeug \textit{Jenkins} eingesetzt. Jenkins wird zunächst dafür verwende, die in Abbildung \ref{fig:ContinuousIntegration} \nameref{fig:ContinuousIntegration} gezeigten Prozesse, abzubilden. Mit diesem Schritt wird die "'Commit Stage"' abgebildet.
+
+\begin{quote}
+    "'The goal of the commit stage is to compile the source code written by the development teams into executable binaries."'\cite{CD:AutomatedTesting}
+\end{quote}
+
+Jenkins wird dabei so eingestellt, dass bei jeder Code-Änderung in der Versionsverwaltung dieser Prozess durchlaufen wird. Damit ist der Anfang der \textit{Continuous Delivery Pipeline} aufgebaut und kann durchlaufen werden.
 \\\\
-Wie bereits erläutert wurde, ist in diesem Beispiel die Qualitätssicherung zwar ein Teil der Softwareentwicklung, jegliche Tests werden jedoch nur manuell ausgeführt, was zu regelmäßigen, unentdeckten Fehlern führt. Daher muss zunächst einmal dafür gesorgt werden, dass Unit-Tests geschrieben werden, welche vor dem Bauen der Software, die Code Qualität und Richtigkeit überprüft.  Test-Driven-Development (TDD)\footnote{TDD wird hier nur erwähnt und nicht weiter erläutert. Es sei auf Fachliteratur zu diesem Thema verwiesen.} ist einer der Möglichkeiten, sicherzustellen, dass Tests regelmäßig geschrieben werden. Zusammen mit dem eingeführten Build-Management-Tool können nun, vor dem Bauen der Software, die Unit Tests durchlaufen und dadurch der Code der Software überprüft werden.
+Damit die aus dem ersten Schritt entstehende Artefakt gespeichert und wiederverwendet werden können wird ein zentrales \textit{Binary Repository Manager} wie Nexus oder Artifactory aufgesetzt. Damit wird, wie schon im Abschnitt \ref{sec:WerkzeugeCD} \nameref{sec:WerkzeugeCD} erläutert, sichergestellt, dass alle Versionen eines Artefaktes archiviert werden und durch andere Projekte wiederverwendet werden können. Damit dies geschieht, muss Jenkins noch so eingestellt werden, dass nach einem erfolgreichen durchlaufen der \textit{Pipeline}, das entstandene Artefakt in das zentrale \textit{Binary Repository Manager} archiviert wird.
 \\\\
-Nun ist zu mindestens Sichergestellt, dass diese Art der Tests automatisiert ablaufen und nicht mehr manuell durchgeführt werden müssen. Jedoch müssen noch Akzeptanz-, Performanz- und Integrations-Tests automatisiert werden. Diese Tests können jedoch nicht immer durch das Build-Management-Tool abgedeckt werden. Daher Wird nun ein "'Build and Management"' Werkzeug wie Jenkins\footnote{siehe: https://jenkins.io/} eingesetzt wird, welches sowohl die Software baut, unter anderem mit dem eingeführten Build-Management-Tool, als auch die anderen Tests abbilden kann. Wie die Software genau funktioniert, soll hier jedoch nicht weiter erläutert werden. Es sei nur erwähnt, dass es durch Konfiguration und Plugins möglich ist, die oben genannten Tests innerhalb von Jenkins abzubilden. Es wurde eine \textit{Continuous Delivery Pipeline} erschaffen. Die Abbildung \ref{fig:ContinuousDeliveryPipeline} \nameref{fig:ContinuousDeliveryPipeline} zeigt ein ausschnitt aus dem "'Build and Management"' Werkzeug Jenkins. Außerdem ist es durch Jenkins möglich jeden Schritt zu Überwachen und zu Protokollieren, sowie nach jedem Schritt zu stoppen, sollte ein Fehler auftreten. Dadurch ist es möglich frühzeitig Fehler zu erkennen und diese zu beheben.
+Als nächsten Schritt wird das Softwareprojekt um ein \textit{Build-Management-Tool} wie Maven erweitert. Mit diesem Schritt soll sichergestellt werden, dass die Software nach einem standardisierten Verfahren gebaut wird, wodurch bei mehrmaligen ausführen der Commit Stage, stets das selbe Resultat erwartet werden kann.  Mit dem \textit{Build-Management-Tool} wird außerdem das Problem, der Abhängigkeiten gelöst. Damit ist gemeint, das mit Hilfe des Werkzeugs Abhängigkeiten zu anderen Artefakten automatisch aufgelöst werden können und nicht mehr manuell zum Projekt hinzugefügt werden müssen. Die Abhängigkeiten werden dabei aus dem zentralen \textit{Binary Repository Manager} geladen.
+\newpage
+Nach diesem Schritt sieht die aufgebaute Infrastruktur des Entwicklungsprozesses wie folgt aus:
+
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/CISetup}\
+    \quelle\url{https://www.jfrog.com/article/jenkinshudson/}
+    \caption[Continuous Integration Setup]{Continuous Integration Setup. Oben die möglichen "`Continuous Integration Server"', links die möglichen Code-Versionsverwaltungen, unten die möglichen "`Build-management-Tools"'}
+    \label{fig:CISetup}  
+\end{figure}
+
+Die Abbildung zeigt ein Continuous Integration Setup. Oben sind die möglichen "'Continuous Integration Server"'. Diese greife zum einen auf die Code-Versionsverwaltung zu, um den Code zu laden, mit dem ein Artefakt gebaut werden soll. Zum anderen speichert er das erfolgreich entstandene Artefakt mit Hilfe von Artifactory. Mit einen der unten aufgeführten Build-management-Tools können diese Artefakte in Projekte übernommen werden, ohne sie manuell hinzufügen zu müssen.
 \\\\
-Es wurde nun dafür gesorgt, dass sowohl das Bauen, als auch jegliche Tests automatisiert wurde. Dadurch kann die Software Standardisiert gebaut und getestet werden. Durch die Automatisierung ist es zusätzlich möglich die \gls{glos:TTM} Zeitspanne deutlich zu kürzen, da automatisch durchgeführten Tests, meistens kürzer und genauer sind, als wenn man diese manuell ausgeführt hätte. Außerdem werden unter anderem dadurch Fehler frühzeitig erkannt und können behoben werden, bevor die Software in Produktion geht. Durch die durchgeführten Änderungen am Entwicklungsprozess, ist es nun möglich bei jeder Änderung des Quellcodes, die Software standardisiert zu bauen und zu Testen. Dadurch erhält der, bzw. die Entwickler regelmäßig und in kurzen Abständen eine Rückmeldung, ob die durchgeführten Änderungen am Code zu Problemen führen oder die Software weiterhin funktioniert. Dies führt dazu, dass regelmäßig releasefähige Software erzeugt wird, welche in Produktion gebracht werden kann.
+Es wurde bisher dafür gesorgt, das Artefakte standardisiert gebaut werden können und das erfolgreiche Resultat, mit Hilfe eines \textit{Binary Repository Managers}, archiviert wird. Jedoch ist der Prozess der Überführung zu \textit{Continuous Delivery} noch nicht abgeschlossen. Ein weiterer wichtiger Schritt ist die Automatisierung der Tests. Zu nächst einmal sollten Unit-Tests geschrieben werden, die den Code Überprüfen. Zusätzlich sollten Akzeptanz Tests geschrieben werden, womit die "'Acceptance Test Stage"' abgebildet wird.
+
+\begin{quote}
+    "'The goal of the acceptance test stage to verify that the software produced in the commit stage meets the business requirements using automated tests."'\cite{CD:AutomatedTesting}
+\end{quote}
+
+Neben den Akzeptanz Test, sollten noch weitere Tests erstellt werden, wie zum Beispiel Performance Tests, auch genannt "'Capacity Tests"'. Mit diesem Schritt wurde ein weiterer Schritt, der \textit{Continuous Delivery Pipeline} hinzugefügt.
+
+\begin{quote}
+    "'The goal of the capacity test stage is to make sure that the capacity requirements of the software are met. this stage also includes tests for scalability and endurance"'\cite{CD:AutomatedTesting}
+\end{quote}
+
+Mit Hilfe von Jenkins können diese Tests automatisch, innerhalb der \textit{Continuous Delivery Pipeline} durchlaufen werden.
+\\\\
+Es können noch weitere Schritte wie zum Beispiel Oberflächen Tests durchgeführt werden. Oft ist es dabei nötig das Artefakt in eine Tests Umgebung zu deployen. Dabei können mit Hilfe von Chef/Puppet ganze Systeme innerhalb der Pipeline aufgebaut werden. Somit kann zum Beispiel eine ganze Produktiv Infrastruktur, nur zum Testen, nachgebaut werden. Hierbei sei jedoch zu beachten, dass das Produktiv System nicht zu groß sein sollte, da der Prozess der Infrastruktur Erstellung zu lange dauern würde.
+\\\\
+Es wurden jetzt alle Wichtigen Schritte durchgeführt, die das Bauen und Testen abbilden. Die dadurch entstandene \textit{Continuous Delivery Pipeline} wird, sobald eine Code-Änderung durchgeführt wurde, komplett durchlaufen. Entsteht in einem Schritt ein Problem, wird die Pipeline abgebrochen und der Entwickler erhält eine direkte Rückmeldung über den Fehler. Wird hingegen die Pipeline ohne weitere Probleme durchlaufen, wird das entstandene Artefakt in einem \textit{Repository Manager} archiviert. Abschließend kann unter anderem der Deployment-Prozess ebenfalls automatisiert werden und bei jedem erfolgreichen Durchlauf durchgeführt werden. Der Deployment-Prozess kann jedoch auch soweit automatisiert werden, das mit einem klick das Artefakt ausgeliefert wird, jedoch nicht nach jedem erfolgreichen Durchlauf der Pipeline ausgeführt wird.
+\\\\
+Abschließend sei noch erwähnt, dass es nicht nötig ist, von "`alle vier Wochen"' zu "`wann immer man möchte"' , über Nacht zu springen.
+
+Steve nelly und Steve Stolt von Rally Software schreiben dazu folgendes\cite{RallySofware2013} :
+\begin{quote}
+    "'Jumping directly from [four] week releases to a pus-to-production strategy is clearly not a sensible approach. We began by shrinking our release cycles down to fortnightly, weekly, semiweekly and finally at-will. These steps took weeks or even monts of preparatory work to get our deploy process streamlined and automated"'\cite[You do not have to go from eight to zero overnight]{RallySofware2013}
+\end{quote}
