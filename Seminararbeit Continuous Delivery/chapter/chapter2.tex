@@ -29,7 +29,7 @@ Folgende Inhaltliche Ausschlusskriterien wurden für die Recherche festgelegt.
 	\item[\textbf{N4}] Inhaltsangabe, Einleitung, Fazit oder Abstract sind nicht Aussagekräftig bzw. lassen keine Hinweise auf den Einsatz oder der Beschreibung von Continuous Delivery zu
 	\item[\textbf{N5}] Inhalt trägt nicht zur Beantwortung der Leitfragen bei. (Bsp.: Das Dokument ist ein Erfahrungsbericht, enthält jedoch keine konkreten Erläuterungen oder Verweise auf Dokumente, die den Prozess genauer beschreiben.)
 	\item[\textbf{N6}] Dokument ist nicht in Deutsch oder Englisch (Material kann aufgrund der Sprachbarriere nicht verwendet werden)
-	\item[\textbf{N7}] Inhalt des Dokumentes muss kostenpflichtig erworben werden oder ist aus anderen Gründen nicht einsehbar.
+	\item[\textbf{N7}] Inhalt des Dokumentes hat nichts mit Continuous Delivery oder den im Kapitel \nameref{subsec:picoc} genannten Begrifflichkeiten zu tun.
 	\item[\textbf{N8}] Dokument beschreibt wie ein Werkzeug und/oder Framework aufgebaut ist und funktioniert.
 \end{list}
 Mit Hilfe der Ausschlusskriterien wird im \nameref{sec:rechercheprotokoll} die Irrelevanz der gefundenen Materialien begründet. Sie werden über die Buchstaben d) bis j) referenziert.
@@ -74,8 +74,6 @@ Im Nachfolgenden sind für jeden, der in Abschnitt \ref{subsec:picoc} \nameref{s
 				\begin{itemize}
 					\itemsep-15pt
 					\item Continuous Delivery
-					\item Docker
-					\item Jenkins
 					\item Deployment
                     \item pipeline
                     \item DevOPs
@@ -94,27 +92,23 @@ Im Nachfolgenden sind für jeden, der in Abschnitt \ref{subsec:picoc} \nameref{s
 			\itemsep-15pt
 			\item Kosten
 			\item Tests
-			\item Zeit
 		\end{itemize}}  &  \multicolumn{1}{p{5cm}|}{
 		\begin{itemize}
 			\itemsep-15pt
 			\item costs
 			\item tests
-			\item time / duration
 		\end{itemize}} \\
 	\hline
 	Context & \multicolumn{1}{p{5cm}|}{
 		\begin{itemize}
 			\itemsep-15pt
 			\item Technik
-			\item Prinzipien
 			\item Praxis
 			\item Anwendung
 		\end{itemize}}  &  \multicolumn{1}{p{5cm}|}{
 		\begin{itemize}
 			\itemsep-15pt
 			\item techniques
-			\item principles
 			\item practice
 			\item usage
 		\end{itemize}} \\
@@ -144,7 +138,7 @@ Da bestimmte Begriffe mit verschiedenen Kontexte in Verbindung gebracht werden k
 Nach einer ersten suche, hat sich ergeben, dass einige Begriffe irreführend für die Suchmaschinen sind, wodurch Materialien gefunden wurde, welche absolut nichts mit dem Thema zu tun haben. Daher sind nur die folgenden Suchanfragen von Bedeutung.
 
 \begin{description}
-	\item[\suchstring{Komplex} =] \suchstringPrefix \\AND\\ ("'SSH"' OR "'FTP"' OR "'Deployment"' OR"'Kosten"' OR "'costs"' OR "'Tests"' OR "'Zeit"' OR "'time"' OR "'duration"' OR "'Fehler"' OR "'error"' OR "'Qualitätssicherung"' OR "'quality assurance"' OR "'Technik"' OR "'techniques"' OR "'Prinzipien"' OR "'principles"' OR "'Praxis"' OR "'practice"' OR "'Anwendung"' OR "'usage")
+	\item[\suchstring{Komplex} =] \suchstringPrefix \\AND\\ ("'Jenkins"' OR "'Deployment"' OR "'Pipeline"' OR "'DevOps"') \\AND\\ ("'Kosten"' OR "'costs"' OR "'Tests"') \\AND\\ ("'Technik"' OR "'techniques"' OR "'Praxis"' OR "'practice"' OR "'Anwendung"' OR "'usage"')
     
     \item[\suchstring{deployment} =] \suchstringPrefix \\AND\\ ("'Deployment"')
     
@@ -221,15 +215,15 @@ In der Nachfolgenden Tabelle sind, nach Suchmaschine geordnet, die Ergebnisse de
 \hline
     \rowcolor{listinggray}Suchstring & gesamt & betrachtet & relevant & gewählt & Datum \\
     \hline 
-    \suchstring{komplex} & 201.863 & 50 & 0 & 0 & 23.06.2016 \\
+    \suchstring{komplex} & 6 & 6 & 3 & 3 & 23.06.2016 \\
     \hline
-    \suchstring{deployment} & 12.092 & 50 & 1 & 1 & 23.06.2016 \\
+    \suchstring{deployment} & 62 & 25 & 0 & 0 & 23.06.2016 \\
     \hline
-    \suchstring{pipeline} & 10 & 10 & 6 & 6 & 23.06.2016 \\
+    \suchstring{pipeline} & 10 & 10 & 6 & 2 & 23.06.2016 \\
     \hline
-    \suchstring{devops} & 11 & 11 & 4 & 1 & 23.06.2016 \\
+    \suchstring{devops} & 11 & 11 & 5 & 0 & 23.06.2016 \\
     \hline
-    \suchstring{einfach} & 40 & 40 & 10 & 6 & 23.06.2016 \\
+    \suchstring{einfach} & 40 & 25 & 10 & 6 & 23.06.2016 \\
     \hline
 \end{tabular}
 \\[20px] \noindent     
@@ -239,15 +233,14 @@ In der Nachfolgenden Tabelle sind, nach Suchmaschine geordnet, die Ergebnisse de
 	\hline
     \rowcolor{listinggray}Suchstring & gesamt & betrachtet & relevant & gewählt & Datum \\
     \hline 
-    \suchstring{komplex} & 1.580 & 50 & 0 & 0 & 23.06.2016 \\
+    \suchstring{komplex} & 390.000 & 20 & 2 & 2 & 23.06.2016 \\
     \hline
-    \suchstring{deployment} & 224.00 & 50 & 1 & 1 & 23.06.2016 \\
+    \suchstring{deployment} & 876.000 & 20 & 1 & 0 & 23.06.2016 \\
     \hline
-    \suchstring{pipeline} & 80.800 & 50 & 2 & 1 & 23.06.2016 \\
-    \suchstring{devops} & 1.230 & 50 & 5 & 1 & 23.06.2016 \\
+    \suchstring{pipeline} & 91.800 & 20 & 0 & 0 & 23.06.2016 \\
     \hline
-    \suchstring{einfach} & 3.180.000 & 50 & 0 & 0 & 23.06.2016 \\
+    \suchstring{devops} & 1.290 & 20 & 1 & 1 & 23.06.2016 \\
     \hline
 \end{tabular}\noindent
 \\\\
-Der Begriff \textit{Continuous Delivery} ist stark mit dem Bereich \underline{Biologie} verbunden. Gibt man diesen Begriff in Google Scholar ein, so sind die meisten Einträge aus der Biologie.
+Der Begriff \textit{Continuous Delivery} ist stark mit dem Bereich \underline{Biologie} verbunden. Daher wurde die Suche mit dem Suchstring \suchstring{einfach} nicht auf Google Scholar angewendet. Gibt man diesen Begriff in Google Scholar ein, so sind die meisten Einträge aus der Biologie.
